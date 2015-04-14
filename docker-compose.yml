@@ -1,0 +1,14 @@
+web:
+  build: .
+  ports:
+   - "8000:8000"
+  volumes:
+   - .:/usr/src/app
+  links:
+   - oracle
+oracle:
+  image: wnameless/oracle-xe-11g
+  command: service oracle-xe start
+  ports: 
+   - "49160:22"
+   - "49161:1521"
