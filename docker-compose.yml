@@ -7,8 +7,7 @@ web:
   links:
    - oracle
 oracle:
-  image: wnameless/oracle-xe-11g
-  command: service oracle-xe start
+  image: alexeiled/docker-oracle-xe-11g
   ports: 
    - "49160:22"
    - "49161:1521"
