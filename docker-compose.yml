@@ -1,13 +1,16 @@
 web:
   build: .
+  command: python manage.py runserver 0.0.0.0:8000
   ports:
    - "8000:8000"
   volumes:
-   - .:/usr/src/app
+   - .:/code
   links:
-   - oracle
-oracle:
-  image: alexeiled/docker-oracle-xe-11g
-  ports: 
-   - "49160:22"
-   - "49161:1521"
+   - mysql
+mysql:
+  image: mysql:5.6
+  environment: 
+   - MYSQL_ROOT_PASSWORD=admin
+   - MYSQL_DATABASE=ginterest
+   - MYSQL_USER=ginterest_admin
+   - MYSQL_PASSWORD=ginterest
