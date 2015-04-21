@@ -1,7 +1,7 @@
-FROM python:3.4
-ENV PYTHONUNBUFFERED 1
-RUN mkdir /code
-WORKDIR /code
-ADD requirements.txt /code/
+FROM django:1.8-python3
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-ADD . /code/
+
+EXPOSE 8000
