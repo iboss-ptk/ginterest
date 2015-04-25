@@ -1,10 +1,10 @@
 import datetime
 from django.db import models
-from app.models import MenuModel
-from app.models import OrderlistModel
-from app.models import EmployeeModel
+from app.models import Menu
+from app.models import Orderlist
+from app.models import Employee
 
-class OrderModel(models.Model):
+class Order(models.Model):
     ORDER_STATUSES = (
             ('q','Queuing'),
             ('c','Being cooked'),
@@ -14,9 +14,9 @@ class OrderModel(models.Model):
     status = models.CharField(max_length=1,choices=ORDER_STATUSES)
     comment = models.CharField(max_length=70)
     quantity = models.IntegerField(default=1)
-    menu_id = models.ForeignKey(MenuModel)
-    orderlist_id = models.ForeignKey(OrderlistModel)
-    employee_id = models.ForeignKey(EmployeeModel)
+    menu_id = models.ForeignKey(Menu)
+    orderlist_id = models.ForeignKey(Orderlist)
+    employee_id = models.ForeignKey(Employee)
 
     def __str__(self):
         return self.menu_id+" ("+self.quantity+")"

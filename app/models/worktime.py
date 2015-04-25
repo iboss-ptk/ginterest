@@ -1,8 +1,8 @@
 import datetime
 from django.db import models
-from app.models import EmployeeModel
+from app.models import Employee
 
-class WorktimeModel(models.Model):
+class Worktime(models.Model):
     DAYS_OF_WEEK = (
             ('sun','Sunday'),
             ('mon','Monday'),
@@ -12,7 +12,7 @@ class WorktimeModel(models.Model):
             ('fri','Friday'),
             ('sat','Saturday'),
     )
-    employee_id = models.ForeignKey(EmployeeModel)
+    employee_id = models.ForeignKey(Employee)
     day_of_week = models.CharField(max_length=3,choices=DAYS_OF_WEEK)
     start_time = models.TimeField(auto_now=False, auto_now_add=False)
     end_time = models.TimeField(auto_now=False, auto_now_add=False)

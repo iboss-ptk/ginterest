@@ -1,6 +1,6 @@
 from django.db import models
 
-class DTableModel(models.Model):
+class DTable(models.Model):
     TABLE_STATUSES = (
             ('u','InUsed'),
             ('o','Vacant'),
@@ -9,7 +9,7 @@ class DTableModel(models.Model):
     status = models.CharField(max_length=1,choices=TABLE_STATUSES)
     description = models.CharField(max_length=200)
     capacity = models.IntegerField(default=2)
-    main_table = models.ForeignKey("DTableModel")
+    main_table = models.ForeignKey("DTable")
 
     def __str__(self):
         return self.id+" "+self.description

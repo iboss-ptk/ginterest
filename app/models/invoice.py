@@ -1,8 +1,8 @@
 import datetime
 from django.db import models
-from app.models import SupplierModel
+from app.models import Supplier
 
-class InvoiceModel(models.Model):
+class Invoice(models.Model):
     INVOICE_STATUSES = (
         ('p','Pending'),
         ('o','Ordered'),
@@ -10,7 +10,7 @@ class InvoiceModel(models.Model):
         ('f','Delivered'),
     )
     date = models.DateTimeField('date published')
-    supplier_id = models.ForeignKey(SupplierModel)
+    supplier_id = models.ForeignKey(Supplier)
     status = models.CharField(max_length=1,choices=INVOICE_STATUSES)
 
     def __str__(self):

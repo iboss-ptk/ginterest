@@ -1,6 +1,6 @@
 from django.db import models
 
-class EmployeeModel(models.Model):
+class Employee(models.Model):
     CHEF = 'c'
     EMPLOYEE_ROLES = (
         ('m','Manager'),
