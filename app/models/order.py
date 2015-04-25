@@ -1,7 +1,7 @@
 import datetime
 from django.db import models
 from app.models import MenuModel
-from app.models import OrderListModel
+from app.models import OrderlistModel
 from app.models import EmployeeModel
 
 class OrderModel(models.Model):
@@ -15,7 +15,7 @@ class OrderModel(models.Model):
     comment = models.CharField(max_length=70)
     quantity = models.IntegerField(default=1)
     menu_id = models.ForeignKey(MenuModel)
-    orderlist_id = models.ForeignKey(OrderListModel)
+    orderlist_id = models.ForeignKey(OrderlistModel)
     employee_id = models.ForeignKey(EmployeeModel)
 
     def __str__(self):
