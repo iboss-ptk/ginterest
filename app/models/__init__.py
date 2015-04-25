@@ -5,9 +5,15 @@ from app.models.dtable import DTableModel
 from app.models.customergroup import CustomerGroupModel
 from app.models.reservation import ReservationModel
 from app.models.menu import MenuModel
-from app.models.employee import EmployeeModel
 from app.models.orderlist import OrderlistModel
+from app.models.employee import EmployeeModel
 from app.models.order import OrderModel
 from app.models.salaried import SalariedModel
 from app.models.hourly import HourlyModel
+from app.models.worktime import WorktimeModel
 from app.models.ingredient import IngredientModel
+from app.models.supplier import SupplierModel
+from app.models.invoice import InvoiceModel
+from app.models.recipe import RecipeModel
+from app.models.sit import SitModel
+from app.models.ininvoice import InInvoiceModel
