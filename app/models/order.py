@@ -11,7 +11,7 @@ class Order(models.Model):
             ('f','Finished'),
     )
     order_time = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=1,choices=ORDER_STATUSES)
+    status = models.CharField(max_length=1,choices=ORDER_STATUSES,default='q')
     comment = models.CharField(max_length=70)
     quantity = models.IntegerField(default=1)
     menu_id = models.ForeignKey(Menu)

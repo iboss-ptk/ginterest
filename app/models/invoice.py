@@ -11,7 +11,7 @@ class Invoice(models.Model):
     )
     date = models.DateTimeField('date published')
     supplier_id = models.ForeignKey(Supplier)
-    status = models.CharField(max_length=1,choices=INVOICE_STATUSES)
+    status = models.CharField(max_length=1,choices=INVOICE_STATUSES,default='p')
 
     def __str__(self):
         return self.supplier_id+" @"+self.date

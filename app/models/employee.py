@@ -13,7 +13,7 @@ class Employee(models.Model):
     lastname = models.CharField(max_length=50)
     home_tel_no = models.CharField(max_length=9)
     mobile_no = models.CharField(max_length=10)
-    pic_path = models.CharField(max_length=30)
+    pic_path = models.ImageField()
     address = models.CharField(max_length=100)
     role = models.CharField(max_length=1,choices=EMPLOYEE_ROLES)
 
