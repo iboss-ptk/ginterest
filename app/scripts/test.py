@@ -78,17 +78,190 @@ def run():
 
 
     # Menu,
-   # m1=Menu(name='janin',description='jap',pic_path)
-    # Orderlist,
-    # Employee,
-    # Order,
-    # Salaried,
-    # Hourly,
-    # Worktime,
-    # Ingredient,
-    # Supplier,
-    # Invoice,
-    # Recipe,
-    # Sit,
-    # InInvoice
+    m1 = Menu(name='janin',description='jap')
+    m2 = Menu(name='boonjira',description='aor')
+    m3 = Menu(name='ssobi',description='iboss')
+    m4 = Menu(name='selseo',description='oesles')
+    m5 = Menu(name='jirat',description='earth')
+    m6 = Menu(name='pannat',description='tannap')
+    m1.save()
+    m2.save()
+    m3.save()
+    m4.save()
+    m5.save()
+    m6.save()
 
+
+    # Orderlist,
+    ol1 = Orderlist(dtable_id=d1, customergroup_id=cg1)
+    ol2 = Orderlist(dtable_id=d2, customergroup_id=cg2)
+    ol3 = Orderlist(dtable_id=d3, customergroup_id=cg3)
+    ol4 = Orderlist(dtable_id=d4, customergroup_id=cg4)
+    ol5 = Orderlist(dtable_id=d5, customergroup_id=cg5)
+    ol6 = Orderlist(dtable_id=d6, customergroup_id=cg6)
+    ol1.save()
+    ol2.save()
+    ol3.save()
+    ol4.save()
+    ol5.save()
+    ol6.save()
+    #kuy porr merng die
+
+
+    # Employee,
+    e1 = Employee(firstname='janin',lastname='jap',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
+    e2 = Employee(firstname='aiiaor',lastname='boon',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
+    e3 = Employee(firstname='iboss',lastname='ibosza',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
+    e4 = Employee(firstname='fony',lastname='laew',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
+    e5 = Employee(firstname='ong',lastname='patinya',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
+    e6 = Employee(firstname='aekamon',lastname='pete',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
+    e1.save()
+    e2.save()
+    e3.save()
+    e4.save()
+    e5.save()
+    e6.save()
+
+    # Order,
+    o1 = Order(status='q',comment='good',menu_id=m1, orderlist_id=ol1)
+    o2 = Order(status='q',comment='good',menu_id=m2, orderlist_id=ol2)
+    o3 = Order(status='q',comment='good',menu_id=m3, orderlist_id=ol3)
+    o4 = Order(status='q',comment='good',menu_id=m4, orderlist_id=ol4)
+    o5 = Order(status='q',comment='good',menu_id=m5, orderlist_id=ol5)
+    o6 = Order(status='q',comment='good',menu_id=m6, orderlist_id=ol6)
+    o1.save()
+    o2.save()
+    o3.save()
+    o4.save()
+    o5.save()
+    o6.save()
+
+    # Salaried,
+    sa1=Salaried(e1)
+    sa2=Salaried(e2)
+    sa3=Salaried(e3)
+    sa4=Salaried(e4)
+    sa5=Salaried(e5)
+    sa6=Salaried(e6)
+    sa1.save()
+    sa2.save()
+    sa3.save()
+    sa4.save()
+    sa5.save()
+    sa6.save()
+
+    # Hourly,
+    h1 = Hourly(employee_id=e1)
+    h2 = Hourly(employee_id=e2)
+    h3 = Hourly(employee_id=e3)
+    h4 = Hourly(employee_id=e4)
+    h5 = Hourly(employee_id=e5)
+    h6 = Hourly(employee_id=e6)
+    h1.save()
+    h2.save()
+    h3.save()
+    h4.save()
+    h5.save()
+    h6.save()
+
+
+    # Worktime,
+    w1=Worktime(employee_id=e1, day_of_week='sun')
+    w2=Worktime(employee_id=e2, day_of_week='sun')
+    w3=Worktime(employee_id=e3, day_of_week='sun')
+    w4=Worktime(employee_id=e4, day_of_week='sun')
+    w5=Worktime(employee_id=e5, day_of_week='sun')
+    w6=Worktime(employee_id=e6, day_of_week='sun')
+    w1.save()
+    w2.save()
+    w3.save()
+    w4.save()
+    w5.save()
+    w6.save()
+
+    # Ingredient,
+    i1=Ingredient(name='janin')
+    i2=Ingredient(name='boon')
+    i3=Ingredient(name='fon')
+    i4=Ingredient(name='ong')
+    i5=Ingredient(name='boss')
+    i6=Ingredient(name='sobb')
+    i1.save()
+    i2.save()
+    i3.save()
+    i4.save()
+    i5.save()
+    i6.save()
+
+
+    # Supplier,
+    sup1=Supplier(name='janin')
+    sup2=Supplier(name='aor')
+    sup3=Supplier(name='boss')
+    sup4=Supplier(name='ong')
+    sup5=Supplier(name='fon')
+    sup6=Supplier(name='fony')
+    sup1.save()
+    sup2.save()
+    sup3.save()
+    sup4.save()
+    sup5.save()
+    sup6.save()
+
+
+
+    # Invoice,
+    inv1=Invoice(supplier_id=sup1,status='o')
+    inv2=Invoice(supplier_id=sup2,status='o')
+    inv3=Invoice(supplier_id=sup3,status='o')
+    inv4=Invoice(supplier_id=sup4,status='o')
+    inv5=Invoice(supplier_id=sup5,status='o')
+    inv6=Invoice(supplier_id=sup6,status='o')
+    inv1.save()
+    inv2.save()
+    inv3.save()
+    inv4.save()
+    inv5.save()
+    inv6.save()
+
+    # Recipe,
+    r1=Recipe(menu_id=m1,ingredient_id=i1)
+    r2=Recipe(menu_id=m2,ingredient_id=i2)
+    r3=Recipe(menu_id=m3,ingredient_id=i3)
+    r4=Recipe(menu_id=m4,ingredient_id=i4)
+    r5=Recipe(menu_id=m5,ingredient_id=i5)
+    r6=Recipe(menu_id=m6,ingredient_id=i6)
+    r1.save()
+    r2.save()
+    r3.save()
+    r4.save()
+    r5.save()
+    r6.save()
+
+    # Sit,
+    sit1=Sit(table_id=d1,customer_id=cg1)
+    sit2=Sit(table_id=d2,customer_id=cg2)
+    sit3=Sit(table_id=d3,customer_id=cg3)
+    sit4=Sit(table_id=d4,customer_id=cg4)
+    sit5=Sit(table_id=d5,customer_id=cg5)
+    sit6=Sit(table_id=d6,customer_id=cg6)
+    sit1.save()
+    sit2.save()
+    sit3.save()
+    sit4.save()
+    sit5.save()
+    sit6.save()
+
+    # InInvoice
+    inin1=InInvoice(ingredient_id=i1,invoice_id=inv1)
+    inin2=InInvoice(ingredient_id=i2,invoice_id=inv2)
+    inin3=InInvoice(ingredient_id=i3,invoice_id=inv3)
+    inin4=InInvoice(ingredient_id=i4,invoice_id=inv4)
+    inin5=InInvoice(ingredient_id=i5,invoice_id=inv5)
+    inin6=InInvoice(ingredient_id=i6,invoice_id=inv6)
+    inin1.save()
+    inin2.save()
+    inin3.save()
+    inin4.save()
+    inin5.save()
+    inin6.save()
