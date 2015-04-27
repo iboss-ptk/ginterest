@@ -15,7 +15,7 @@ from models/hourly import *
 from models/worktime import *
 from models/ingredient import *
 from models/supplier import *
-from models/invoice import *
 from models/recipe import *
 from models/sit import *
+from models/invoice import *
 from models/ininvoice import *
