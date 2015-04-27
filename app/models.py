@@ -13,7 +13,7 @@ from models/order import *
 from models/salaried import *
 from models/hourly import *
 from models/worktime import *
-from models/ingredien import *
+from models/ingredient import *
 from models/supplier import *
 from models/invoice import *
 from models/recipe import *
