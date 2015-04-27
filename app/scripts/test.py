@@ -1,12 +1,13 @@
 import django
 django.setup()
-from app.models import SystemRole,User,DTable,CustomerGroup,Reservation,Menu,Orderlist,Employee,Order,Salaried,Hourly,Worktime,Ingredient,Supplier,Invoice,Recipe,Sit,InInvoice
+from app.models import *
+#from app.models import SystemRole,User,DTable,CustomerGroup,Reservation,Menu,Orderlist,Employee,Order,Salaried,Hourly,Worktime,Ingredient,Supplier,Invoice,Recipe,Sit,InInvoice
 import datetime
 from datetime import time
 from django.utils import timezone
 
 def run():
-    #SystemRole
+    # SystemRole,
     s1 = SystemRole(role_name = 'TableScreen')
     s2 = SystemRole(role_name = 'ReceptionScreen')
     s3 = SystemRole(role_name = 'ServeScreen')
@@ -21,7 +22,7 @@ def run():
     s6.save()
     all_sysrole = SystemRole.objects.all()
 
-    #User,
+    # User,
     u1 = User(username ='janin',password='jap',role_id=s1)
     u2 = User(username ='fony',password='fony',role_id=s2)
     u3 = User(username ='aiiaor',password='aiiaor',role_id=s3)
@@ -36,7 +37,7 @@ def run():
     u6.save()
     all_user = User.objects.all()
 
-    #DTable,
+    # DTable,
     d1 = DTable(description='aiiaor')
     d2 = DTable(description='iboss')
     d3 = DTable(description='ong')
@@ -107,8 +108,6 @@ def run():
     ol4.save()
     ol5.save()
     ol6.save()
-    #kuy porr merng die
-
 
     # Employee,
     e1 = Employee(firstname='janin',lastname='jap',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='c',pic_path='emp_pic/1.jpg')
