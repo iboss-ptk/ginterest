@@ -3,3 +3,4 @@ Pillow
 djangorestframework
 markdown
 django-filter
+django-extensions
