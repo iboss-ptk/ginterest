@@ -7,4 +7,4 @@ class Sit(models.Model):
     customer_id = models.ForeignKey(CustomerGroup)
 
     def __str__(self):
-        return self.customer_id+" @"+self.table_id
+        return str(self.customer_id)+" @"+str(self.table_id)

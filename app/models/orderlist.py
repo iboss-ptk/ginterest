@@ -7,4 +7,4 @@ class Orderlist(models.Model):
     customergroup_id = models.ForeignKey(CustomerGroup)
 
     def __str__(self):
-        return self.dtable_id
+        return str(self.dtable_id)

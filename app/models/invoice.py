@@ -14,4 +14,4 @@ class Invoice(models.Model):
     status = models.CharField(max_length=1,choices=INVOICE_STATUSES,default='p')
 
     def __str__(self):
-        return self.supplier_id+" @"+self.date
+        return str(self.supplier_id)+" @"+str(self.date)

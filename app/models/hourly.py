@@ -6,4 +6,4 @@ class Hourly(models.Model):
     wage = models.IntegerField(default=40)
 
     def __str__(self):
-        return self.employee_id+' @'+self.wage
+        return str(self.employee_id)+' @'+str(self.wage)

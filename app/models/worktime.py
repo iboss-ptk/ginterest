@@ -18,4 +18,4 @@ class Worktime(models.Model):
     end_time = models.TimeField(auto_now=False, auto_now_add=False)
 
     def __str__(self):
-        return self.employee_id+' - '+self.day_of_week+' @'+start_time+' - '+end_time
+        return str(self.employee_id)+' - '+self.day_of_week+' @'+str(start_time)+' - '+str(end_time)

@@ -12,4 +12,4 @@ class Reservation(models.Model):
     customer_id = models.ForeignKey(CustomerGroup)
 
     def __str__(self):
-        return self.firstname+" "+self.reserved_time
+        return self.firstname+" "+str(self.reserved_time)

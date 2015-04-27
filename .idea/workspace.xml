@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9942394c-953b-4b87-94e8-c31c60222e6f" name="Default" comment="" />
+    <list default="true" id="9942394c-953b-4b87-94e8-c31c60222e6f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/migrations/0007_auto_20150426_0743.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/migrations/0008_auto_20150426_0802.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/.template.py.swo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/.template.py.swp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/template.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/customergroup.py" afterPath="$PROJECT_DIR$/app/models/customergroup.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/dtable.py" afterPath="$PROJECT_DIR$/app/models/dtable.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/hourly.py" afterPath="$PROJECT_DIR$/app/models/hourly.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/ininvoice.py" afterPath="$PROJECT_DIR$/app/models/ininvoice.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/invoice.py" afterPath="$PROJECT_DIR$/app/models/invoice.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/order.py" afterPath="$PROJECT_DIR$/app/models/order.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/orderlist.py" afterPath="$PROJECT_DIR$/app/models/orderlist.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/recipe.py" afterPath="$PROJECT_DIR$/app/models/recipe.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/reservation.py" afterPath="$PROJECT_DIR$/app/models/reservation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/salaried.py" afterPath="$PROJECT_DIR$/app/models/salaried.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/sit.py" afterPath="$PROJECT_DIR$/app/models/sit.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/worktime.py" afterPath="$PROJECT_DIR$/app/models/worktime.py" />
+    </list>
     <ignored path="ginterest.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,10 +44,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ginterest/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34026465" vertical-offset="0" max-vertical-offset="529">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
               <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
@@ -36,10 +56,27 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="529">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="width" value="1440" />
@@ -117,10 +154,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32891566" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32891566" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -163,11 +200,19 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ginterest/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34026465" vertical-offset="0" max-vertical-offset="529">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="529">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
