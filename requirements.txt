@@ -3,4 +3,3 @@ Pillow
 djangorestframework
 markdown
 django-filter
-pygments
