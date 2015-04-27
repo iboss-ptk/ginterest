@@ -1,24 +1,22 @@
-from django.shortcuts import render
-
 # Create your views here.
 
-from django.contrib.auth.models import User, Group
+
+from django.http import HttpResponse
 from rest_framework import viewsets
-from app.serializers import UserSerializer, GroupSerializer
-# from django.http import HttpResponse
+from app.serializers import *
+
+
+class MenuViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Menu to be viewed or edited.
+    """
+    queryset = Menu.objects.all()
+    serializer_class = MenuSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows Menu to be viewed or edited.
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
