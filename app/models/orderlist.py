@@ -1,4 +1,4 @@
-sfrom django.db import models
+from django.db import models
 from app.models import DTable
 from app.models import CustomerGroup
 
