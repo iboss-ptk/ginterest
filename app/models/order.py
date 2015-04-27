@@ -2,7 +2,6 @@ import datetime
 from django.db import models
 from app.models import Menu
 from app.models import Orderlist
-from app.models import Employee
 
 class Order(models.Model):
     ORDER_STATUSES = (
@@ -16,7 +15,6 @@ class Order(models.Model):
     quantity = models.IntegerField(default=1)
     menu_id = models.ForeignKey(Menu)
     orderlist_id = models.ForeignKey(Orderlist)
-    employee_id = models.ForeignKey(Employee)
 
     def __str__(self):
         return str(self.menu_id)+" ("+str(self.quantity)+")"
