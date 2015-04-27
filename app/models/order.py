@@ -7,7 +7,8 @@ class Order(models.Model):
     ORDER_STATUSES = (
             ('q','Queuing'),
             ('c','Being cooked'),
-            ('f','Finished'),
+            ('f','Finished cooking'),
+            ('s','served'),
     )
     order_time = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=1,choices=ORDER_STATUSES,default='q')
