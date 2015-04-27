@@ -19,4 +19,4 @@ class Order(models.Model):
     employee_id = models.ForeignKey(Employee)
 
     def __str__(self):
-        return self.menu_id+" ("+self.quantity+")"
+        return str(self.menu_id)+" ("+str(self.quantity)+")"

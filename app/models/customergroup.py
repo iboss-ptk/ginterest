@@ -8,4 +8,4 @@ class CustomerGroup(models.Model):
     exit_time = models.DateTimeField(auto_now_add=False)
 
     def __str__(self):
-        return ""+self.enter_time+" ("+self.number_of_customer+")"
+        return str(self.enter_time)+' ('+str(self.number_of_customer)+')'

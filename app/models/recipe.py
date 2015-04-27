@@ -8,4 +8,4 @@ class Recipe(models.Model):
     quantity_used = models.IntegerField(default=1)
 
     def __str__(self):
-        return self.quantity_used+"x"+self.ingredient_id+" @"+self.menu_id
+        return str(self.quantity_used)+"x"+str(self.ingredient_id)+" @"+str(self.menu_id)

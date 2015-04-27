@@ -9,7 +9,7 @@ class DTable(models.Model):
     status = models.CharField(max_length=1,choices=TABLE_STATUSES,default='o')
     description = models.CharField(max_length=200)
     capacity = models.IntegerField(default=2)
-    main_table = models.ForeignKey("DTable")
+    main_table = models.ForeignKey('self')
 
     def __str__(self):
-        return self.id+" "+self.description
+        return str(self.id)+' '+self.description

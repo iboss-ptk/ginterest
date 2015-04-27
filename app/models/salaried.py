@@ -6,4 +6,4 @@ class Salaried(models.Model):
     salary = models.IntegerField(default=15000)
 
     def __str__(self):
-        return self.employee_id+' @'+self.salary
+        return str(self.employee_id)+' @'+str(self.salary)

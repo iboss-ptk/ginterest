@@ -9,4 +9,4 @@ class InInvoice(models.Model):
     price = models.FloatField(default=1)
 
     def __str__(self):
-        return self.ingredient_id+"x"+self.quantity_bought+" @"+self.invoice_id+" $"+self.price
+        return str(self.ingredient_id)+"x"+str(self.quantity_bought)+" @"+str(self.invoice_id)+" $"+str(self.price)
