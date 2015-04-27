@@ -19,3 +19,4 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.menu_id)+" ("+str(self.quantity)+")"
+

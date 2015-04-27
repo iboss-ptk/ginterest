@@ -15,3 +15,6 @@ class Invoice(models.Model):
 
     def __str__(self):
         return str(self.supplier_id)+" @"+str(self.date)
+    def invoice_approve(self):
+         self.status='o'
+         return true
