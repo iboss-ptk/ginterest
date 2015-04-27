@@ -1,2 +1,5 @@
 mysqlclient
 Pillow
+djangorestframework
+markdown
+django-filter
