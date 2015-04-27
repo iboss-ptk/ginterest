@@ -8,12 +8,13 @@ class Employee(models.Model):
         ('w','WaitingStaff'),
         ('s','Staff'),
         ('t','Trainee'),
+        ('f', 'Fired'),
     )
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
     home_tel_no = models.CharField(max_length=9)
     mobile_no = models.CharField(max_length=10)
-    pic_path = models.ImageField()
+    pic_path = models.ImageField(upload_to='employee_pic/',default='pictures/no-img.jpg')
     address = models.CharField(max_length=100)
     role = models.CharField(max_length=1,choices=EMPLOYEE_ROLES)
 
@@ -22,3 +23,11 @@ class Employee(models.Model):
 
     def is_chef(self):
         return self.role in self.CHEF
+
+    def fire(self):
+        self.EMPLOYEE_ROLES='f'
+        return 'FIRED!'
+
+
+
+

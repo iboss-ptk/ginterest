@@ -1,6 +1,8 @@
 import django
 django.setup()
 from app.models import SystemRole,User,DTable,CustomerGroup,Reservation,Menu,Orderlist,Employee,Order,Salaried,Hourly,Worktime,Ingredient,Supplier,Invoice,Recipe,Sit,InInvoice
+import datetime
+from datetime import time
 from django.utils import timezone
 
 def run():
@@ -109,12 +111,12 @@ def run():
 
 
     # Employee,
-    e1 = Employee(firstname='janin',lastname='jap',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
-    e2 = Employee(firstname='aiiaor',lastname='boon',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
-    e3 = Employee(firstname='iboss',lastname='ibosza',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
-    e4 = Employee(firstname='fony',lastname='laew',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
-    e5 = Employee(firstname='ong',lastname='patinya',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
-    e6 = Employee(firstname='aekamon',lastname='pete',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m')
+    e1 = Employee(firstname='janin',lastname='jap',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='c',pic_path='emp_pic/1.jpg')
+    e2 = Employee(firstname='aiiaor',lastname='boon',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m',pic_path='emp_pic/2.jpg')
+    e3 = Employee(firstname='iboss',lastname='ibosza',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m',pic_path='emp_pic/3.jpg')
+    e4 = Employee(firstname='fony',lastname='laew',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m',pic_path='emp_pic/4.jpg')
+    e5 = Employee(firstname='ong',lastname='patinya',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m',pic_path='emp_pic/5.jpg')
+    e6 = Employee(firstname='aekamon',lastname='pete',home_tel_no='012345678',mobile_no='0123456789',address='asdf',role='m',pic_path='emp_pic/6.jpg')
     e1.save()
     e2.save()
     e3.save()
@@ -137,12 +139,12 @@ def run():
     o6.save()
 
     # Salaried,
-    sa1=Salaried(e1)
-    sa2=Salaried(e2)
-    sa3=Salaried(e3)
-    sa4=Salaried(e4)
-    sa5=Salaried(e5)
-    sa6=Salaried(e6)
+    sa1=Salaried(employee_id=e1)
+    sa2=Salaried(employee_id=e2)
+    sa3=Salaried(employee_id=e3)
+    sa4=Salaried(employee_id=e4)
+    sa5=Salaried(employee_id=e5)
+    sa6=Salaried(employee_id=e6)
     sa1.save()
     sa2.save()
     sa3.save()
@@ -166,12 +168,12 @@ def run():
 
 
     # Worktime,
-    w1=Worktime(employee_id=e1, day_of_week='sun')
-    w2=Worktime(employee_id=e2, day_of_week='sun')
-    w3=Worktime(employee_id=e3, day_of_week='sun')
-    w4=Worktime(employee_id=e4, day_of_week='sun')
-    w5=Worktime(employee_id=e5, day_of_week='sun')
-    w6=Worktime(employee_id=e6, day_of_week='sun')
+    w1=Worktime(employee_id=e1, day_of_week='sun', start_time=time(12,00,00,750000), end_time=time(20,00,00,750000))
+    w2=Worktime(employee_id=e2, day_of_week='sun', start_time=time(12,00,00,750000), end_time=time(20,00,00,750000))
+    w3=Worktime(employee_id=e3, day_of_week='sun', start_time=time(12,00,00,750000), end_time=time(20,00,00,750000))
+    w4=Worktime(employee_id=e4, day_of_week='sun', start_time=time(12,00,00,750000), end_time=time(20,00,00,750000))
+    w5=Worktime(employee_id=e5, day_of_week='sun', start_time=time(12,00,00,750000), end_time=time(20,00,00,750000))
+    w6=Worktime(employee_id=e6, day_of_week='sun', start_time=time(12,00,00,750000), end_time=time(20,00,00,750000))
     w1.save()
     w2.save()
     w3.save()
@@ -211,12 +213,12 @@ def run():
 
 
     # Invoice,
-    inv1=Invoice(supplier_id=sup1,status='o')
-    inv2=Invoice(supplier_id=sup2,status='o')
-    inv3=Invoice(supplier_id=sup3,status='o')
-    inv4=Invoice(supplier_id=sup4,status='o')
-    inv5=Invoice(supplier_id=sup5,status='o')
-    inv6=Invoice(supplier_id=sup6,status='o')
+    inv1=Invoice(supplier_id=sup1,status='o',date=datetime.datetime(2015,4,27,8,0,0))
+    inv2=Invoice(supplier_id=sup2,status='o',date=datetime.datetime(2015,4,27,8,0,0))
+    inv3=Invoice(supplier_id=sup3,status='o',date=datetime.datetime(2015,4,27,8,0,0))
+    inv4=Invoice(supplier_id=sup4,status='o',date=datetime.datetime(2015,4,27,8,0,0))
+    inv5=Invoice(supplier_id=sup5,status='o',date=datetime.datetime(2015,4,27,8,0,0))
+    inv6=Invoice(supplier_id=sup6,status='o',date=datetime.datetime(2015,4,27,8,0,0))
     inv1.save()
     inv2.save()
     inv3.save()
