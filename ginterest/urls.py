@@ -4,8 +4,12 @@ from app import views
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'menus', views.MenuViewSet)
-router.register(r'users', views.UserViewSet)
+router.register(r'user', views.UserViewSet)
+router.register(r'system_role', views.SystemRoleViewSet)
+router.register(r'dtable', views.DTableViewSet)
+router.register(r'customergroup', views.CustomerGroupViewSet)
+router.register(r'reservation', views.ReservationViewSet)
+router.register(r'menu', views.MenuViewSet)
 
 urlpatterns = [
     # Examples:

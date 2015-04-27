@@ -4,6 +4,7 @@ from django.db import models
 #from app.models.menu import Menu
 #from app.models.order import Order
 
+
 class CustomerGroup(models.Model):
     number_of_customer = models.IntegerField(default=1)
     queue_no = models.IntegerField(default=0)
