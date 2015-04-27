@@ -99,7 +99,7 @@ class Employee(models.Model):
         return self.role in self.CHEF
 
     def fire(self):
-        self.EMPLOYEE_ROLES = 'f'
+        self.role = 'f'
         return 'FIRED!'
 
 
@@ -214,3 +214,15 @@ class InInvoice(models.Model):
 
     def __str__(self):
         return str(self.ingredient_id)+"x"+str(self.quantity_bought)+" @"+str(self.invoice_id)+" $"+str(self.price)
+
+
+# for testing
+class AllFreakingFunction(models.Model):
+    def total_income(cg):
+        total = 0
+        orderL = Orderlist.objects.get(customergroup_id=cg)
+        allOrders = Order.objects.all().prefetch_related(orderL)
+        for order in allOrders:
+                morder = Menu.objects.all().prefetch_releated(order)
+                total+= (order.quantity)*(morder.price)
+        return total
