@@ -9,7 +9,8 @@ li{
 .page-content{
 	background: #fff;
 }
-.red-content{
+.red-bg-content,
+.login-screen-content{
 	background: #AF180B;
 }
 .item-content,
@@ -78,14 +79,25 @@ li{
 	position: relative;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
+	text-align: center;
 }
-.ads-slider{
-	width: 80%;
+.table-row-inside{
+	position: relative;
 	height: 100%;
 }
-.ads-slider .img{
+.table-button{
 	position: relative;
-	max-width: 100%;
+	margin-left: 10%;
+	width: 100%;
+	height: 30%;
+}
+.ads-slider{
+	width: 95%;
+	height: 100%;
+}
+.ads-slider img{
+	position: relative;
+	max-width: 95%;
 	max-height: 100%;
 }
 
