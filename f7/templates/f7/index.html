@@ -15,7 +15,7 @@
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="{% static 'f7/css/ginterest.css' %}">
   </head>
-  <body class="layout-null theme-white" onload="hideNavBar()">
+  <body class="layout-null layout-dark theme-white" onload="hideNavbar()">
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar-overlay"></div>
     <!-- Panels overlay-->
@@ -37,10 +37,15 @@
       <!-- Your main view, should have "view-main" class-->
       <div class="view view-main">
 		<div class="navbar">
+		  <div class="navbar-inner">
+			<div class="left sliding"></div>
+			<div class="center sliding"></div>
+			<div class="right"></div>
+		  </div>
 		</div>
         <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
         <div class="pages navbar-through">
-		  <div data-page="login-screen-embedded modal-in" class="page no-toolbar no-navbar no-swipeback">
+		  <div data-page="login-screen-embedded" class="page no-toolbar no-navbar no-swipeback">
 			<div class="page-content login-screen-content">
 			  <div class="ginterest-login">
 				  <div class="login-screen-title ">
@@ -51,7 +56,7 @@
 						<div class="list-block">
 						  <ul>
 							<li class="item-content">
-							  <div class="item-inner"> 
+							  <div class="item-inner">
 								<div class="item-title label color-text bold">Username</div>
 								<div class="item-input color-input">
 								  <input class="color-input" type="text" name="username" placeholder="Your username"/>
@@ -63,7 +68,7 @@
 						<div class="list-block">
 						  <ul>
 							<li class="item-content ">
-							  <div class="item-inner"> 
+							  <div class="item-inner">
 								<div class="item-title label color-text bold">Password</div>
 								<div class="item-input color-input">
 								  <input type="password" name="password" placeholder="Your password"/>
@@ -86,14 +91,34 @@
 		</div>
       </div>
     </div>
+
+    <div class="popup getqueue-popup">
+      <div class="view navbar-fixed">
+        <div class="pages">
+          <div class="page">
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="center">Create Queue</div>
+                <div class="button right"><a href="#" class="link close-popup">X</a></div>
+              </div>
+            </div>
+            <div class="page-content">
+              <div class="content-block">
+                  <p>Hello World</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="{% static 'f7/js/framework7.js' %}"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="{% static 'f7/js/ginterest.js' %}"></script>
-	<script>
-	function hideNavBar() {
-		mainView.hideNavbar();
-	}
+    <script>
+		function hideNavbar(){
+			mainView.hideNavbar();
+		}
 	</script>
   </body>
 </html>

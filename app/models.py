@@ -42,23 +42,7 @@ class DTable(models.Model):
     def __str__(self):
         return str(self.id)+' '+self.description
 
-    @staticmethod
-    def activate_table(table_id, customergroup_id):
-        m_orderlist = Orderlist.create_new_orderlist(table_id, customergroup_id)
-        m_table = DTable.objects.get(pk=table_id)
-        if m_table.status == 'u' or m_table.status == 'r':
-            return False
 
-        new_sit = Sit.objects.create(
-            table_id=DTable.objects.get(pk=table_id),
-            customer_id=CustomerGroup.objects.get(pk=customergroup_id))
-        m_table.status = 'u'
-
-        m_table.save()
-        m_orderlist.save()
-        new_sit.save()
-
-        return True
 
 
 class CustomerGroup(models.Model):
@@ -74,7 +58,7 @@ class CustomerGroup(models.Model):
         mOrderlist = Orderlist.objects.get(customergroup_id=self)
         new_order = Order.objects.create(
             status='q', comment=comment,
-            quantity=quantity, menu_id=Menu.objects.get(pk=menuId),
+            quantity=quantity, menu_id=menuId,
             orderlist_id=mOrderlist)
         new_order.save()
         return True
@@ -110,6 +94,24 @@ class Reservation(models.Model):
     def __str__(self):
         return self.firstname+" "+str(self.reserved_time)
 
+    @staticmethod
+    def activate_table(table_id, customergroup_id):
+        m_orderlist = Orderlist.create_new_orderlist(table_id, customergroup_id)
+        m_table = DTable.objects.get(pk=table_id)
+        if m_table.status == 'u' | m_table.status == 'r':
+            return False
+
+        new_sit = Sit.objects.create(
+            DTable.objects.get(pk=table_id),
+            CustomerGroup.objects.get(pk=customergroup_id))
+        m_table.status = 'u'
+
+        m_table.save()
+        m_orderlist.save()
+        new_sit.save()
+
+        return True
+
 
 class Menu(models.Model):
     name = models.CharField(max_length=50)
@@ -127,8 +129,7 @@ class Menu(models.Model):
             menu_list.append({
                 'name': menu.name,
                 'description': menu.description,
-                # TODO: pic upload setup
-                # 'pic_path': menu.pic_path,
+                'pic_path': menu.pic_path,
                 'price': menu.price
                 })
         return menu_list
