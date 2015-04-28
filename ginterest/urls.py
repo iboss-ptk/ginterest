@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from app import views
+from f7 import views as f7_views
 from rest_framework import routers
 
 # api router
@@ -27,7 +28,7 @@ router.register(r'ininvoice', views.InInvoiceViewSet)
 
 urlpatterns = [
     # Examples:
-    # url(r'^$', 'ginterest.views.home', name='home'),
+    url(r'^$', f7_views.index, name='index'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^api/', include(router.urls)),
