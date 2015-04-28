@@ -27,6 +27,9 @@ class UserViewSet(viewsets.ModelViewSet):
         """
         data = request.DATA
         resp = User.authenticate(data['username'], data['password'])
+        if resp['isAuthenticated']:
+            request.session['user_id'] = resp.id
+            request.session['role_id'] = resp.role_id
         return Response(resp)
 
 
@@ -37,6 +40,17 @@ class DTableViewSet(viewsets.ModelViewSet):
     queryset = DTable.objects.all()
     serializer_class = DTableSerializer
 
+    @detail_route()
+    def wait_for_activation(self):
+        resp = {'status': self.get_object().status}
+        return Response(resp)
+
+    @detail_route()
+    def get_all_menu(self):
+        # TODO: wait for Ong's dtable get all menu
+        resp = None
+        return Response(resp)
+
 
 class CustomerGroupViewSet(viewsets.ModelViewSet):
     """
@@ -44,6 +58,11 @@ class CustomerGroupViewSet(viewsets.ModelViewSet):
     """
     queryset = CustomerGroup.objects.all()
     serializer_class = CustomerGroupSerializer
+
+    @detail_route()
+    def add_order_to_orderlist(self, menu_id, quantity, comment=None):
+        resp = {'isSuccessful': self.get_object().add_order_to_orderlist(menu_id, quantity, comment)}
+        return Response(resp)
 
 
 class ReservationViewSet(viewsets.ModelViewSet):
