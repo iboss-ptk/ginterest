@@ -55,6 +55,12 @@ class DTableViewSet(viewsets.ModelViewSet):
         resp = {'menu_list': menu_list}
         return Response(resp)
 
+    @list_route(methods=['post'])
+    def activate_table(self, request):
+        is_successful = DTable.activate_table(request.DATA['dtable_id'], request.DATA['customergroup_id'])
+        resp = {'is_successful': is_successful}
+        return Response(resp)
+
 
 
 class CustomerGroupViewSet(viewsets.ModelViewSet):
