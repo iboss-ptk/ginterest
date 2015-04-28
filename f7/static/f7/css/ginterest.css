@@ -40,6 +40,11 @@ li{
 .color-input{
 	color:#000 !important;
 }
+
+.align-input input ::-webkit-input-placeholder {
+   text-align: center !important ;
+}
+
 .color-input ::-webkit-input-placeholder{
 	color:#BDBDBD;
 }
