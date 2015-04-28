@@ -99,11 +99,14 @@ class Reservation(models.Model):
         if m_table.status == 'u' | m_table.status == 'r':
             return False
 
-        new_
+        new_sit = Sit.objects.create(
+            DTable.objects.get(pk=table_id),
+            CustomerGroup.objects.get(pk=customergroup_id))
         m_table.status = 'u'
 
         m_table.save()
         m_orderlist.save()
+        new_sit.save()
 
         return True
 
