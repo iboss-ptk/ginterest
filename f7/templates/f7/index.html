@@ -15,7 +15,7 @@
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="{% static 'f7/css/ginterest.css' %}">
   </head>
-  <body class="layout-null layout-dark theme-white">
+  <body class="layout-null layout-dark theme-white" onload="hideNavbar()">
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar-overlay"></div>
     <!-- Panels overlay-->
@@ -80,7 +80,7 @@
 					</div>
 					<div class="list-block">
 					  <ul>
-						<li><a href="{% static 'f7/html/reception.html' %}" class="item-link list-button color-white">Log In</a></li>
+						<li><a href="{% static 'f7/html/table/wait.html' %}" class="item-link list-button color-white">Log In</a></li>
 					  </ul>
 					  <div class="list-block-label color-white">An advanced restaurant<br>database system</div>
 					</div>
@@ -115,5 +115,10 @@
     <script type="text/javascript" src="{% static 'f7/js/framework7.js' %}"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="{% static 'f7/js/ginterest.js' %}"></script>
+    <script>
+		function hideNavbar(){
+			mainView.hideNavbar();
+		}
+	</script>
   </body>
 </html>
