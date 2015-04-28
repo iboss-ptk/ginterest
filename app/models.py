@@ -86,7 +86,7 @@ class CustomerGroup(models.Model):
             order_list.append(order_obj)
         return order_list
 
-
+    
 
     @staticmethod
     def get_checkingout_orderlist():
