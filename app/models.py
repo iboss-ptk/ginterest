@@ -85,9 +85,13 @@ class Reservation(models.Model):
         m_table = DTable.objects.get(pk=table_id)
         if m_table.status == 'u' | m_table.status == 'r':
             return False
+
+        new_
         m_table.status = 'u'
+
         m_table.save()
         m_orderlist.save()
+
         return True
 
 

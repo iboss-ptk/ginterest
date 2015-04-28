@@ -17,7 +17,6 @@ def run():
     # print(DTable.objects.get(pk=1).status)
     # print(Reservation.activate_table(1,1))
 
-    print(DTable.objects.get(pk=1).status)
     # print(Reservation.activate_table(1,1))
 
     # c1.add_to_orderlist(m1, 1, "-")
