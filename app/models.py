@@ -86,6 +86,12 @@ class CustomerGroup(models.Model):
             order_list.append(order_obj)
         return order_list
 
+    @
+
+    @staticmethod
+    def get_checkingout_orderlist():
+        return
+
     #TODO change exitTIme to datetime.dateime.now().time() when checkout
 
 
@@ -150,9 +156,6 @@ class Orderlist(models.Model):
     #     orderlist_list = []
     #     dtables = DTable.objects.
     #     return orderlist_list
-
-
-
 
 
 class Employee(models.Model):
@@ -291,6 +294,10 @@ class Sit(models.Model):
     def __str__(self):
         return str(self.customer_id)+" @"+str(self.table_id)
 
+    @staticmethod
+    def get_sitting_customergroup(table_id):
+        m_sit = Sit.objects.filter(table_id=table_id).last()
+        return m_sit.customer_id
 
 class Invoice(models.Model):
     INVOICE_STATUSES = (
