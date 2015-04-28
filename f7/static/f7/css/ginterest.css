@@ -15,7 +15,7 @@ li{
 }
 .item-content,
 .list-button{
-	border-radius: 6px;  /*=======BORDER=======*/
+	border-radius: 5px;  /*=======BORDER=======*/
 }
 .ginterest-login{
 	position: absolute;
@@ -70,29 +70,30 @@ li{
 	-webkit-transform: translateX(-50%) translateY(-50%);
 	text-align: center;
 }
-.table-row{
-	position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	text-align: center;
-}
-.table-row-inside{
-	position: relative;
-	height: 100%;
-}
 .table-button{
 	position: relative;
-	margin-left: 10%;
-	width: 100%;
-	height: 30%;
+	background:#AF180B;
+	border: 2px solid #fff;
+    padding: 4vh 5vh; 
+	margin-bottom: 4vh;
+	margin-left: 3vh;
+	display: block;
+	font-size: 5vh;
+	text-align: center;
+	border-radius: 8px;  
+}
+.table-button img{
+	max-width: 10vh;
+	max-height: 10vh;
 }
 .ads-slider{
-	width: 95%;
-	height: 100%;
+	position: relative;
+	max-width: 70vh;
+	max-height: 90vh;
 }
 .ads-slider img{
 	position: relative;
-	max-width: 95%;
-	max-height: 100%;
+	max-width:100%;
+	max-height:100%;
 }
 
