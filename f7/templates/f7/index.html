@@ -1,3 +1,92 @@
 {% load staticfiles %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'f7/css/style.css' %}" />
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Ginterest</title>
+	<link rel="shortcut icon" href="{% static 'f7/img/favicon.png' %}">
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="{% static 'f7/css/framework7.css' %}">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="{% static 'f7/css/ginterest.css' %}">
+  </head>
+  <body class="layout-null layout-dark theme-red">
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+      <div class="content-block">
+        <p>Left panel content goes here</p>
+      </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+      <div class="content-block">
+        <p>Right panel content goes here</p>
+      </div>
+    </div>
+    <!-- Views-->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through">
+		  <div data-page="login-screen-embedded" class="page no-toolbar no-navbar no-swipeback">
+			<div class="page-content login-screen-content">
+			  <div class="ginterest-login">
+				  <div class="login-screen-title ">
+					<img src="{% static 'f7/img/logo.png' %}" alt="Ginterest" height="165" width="287">
+				  </div>
+				  <form>
+					<div class="login-box">
+						<div class="list-block">
+						  <ul>
+							<li class="item-content">
+							  <div class="item-inner"> 
+								<div class="item-title label color-text bold">Username</div>
+								<div class="item-input color-input">
+								  <input class="color-input" type="text" name="username" placeholder="Your username"/>
+								</div>
+							  </div>
+							</li>
+						  </ul>
+						</div>
+						<div class="list-block">
+						  <ul>
+							<li class="item-content ">
+							  <div class="item-inner"> 
+								<div class="item-title label color-text bold">Password</div>
+								<div class="item-input color-input">
+								  <input type="password" name="password" placeholder="Your password"/>
+								</div>
+							  </div>
+							</li>
+						  </ul>
+						</div>
+					</div>
+					<div class="list-block">
+					  <ul>
+						<li><a href="{% static 'f7/html/main.html' %}" class="item-link list-button color-white">Log In</a></li>
+					  </ul>
+					  <div class="list-block-label color-white">An advanced restaurant<br>database system</div>
+					</div>
+				  </form>
+				</div>
+			</div>
+		  </div>
+		</div>
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="{% static 'f7/js/framework7.js' %}"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="{% static 'f7/js/ginterest.js' %}"></script>
+  </body>
+</html>
