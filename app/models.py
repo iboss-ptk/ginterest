@@ -42,6 +42,22 @@ class CustomerGroup(models.Model):
     def __str__(self):
         return str(self.enter_time)+' ('+str(self.number_of_customer)+')'
 
+    def add_to_orderlist(self, menuId, quantity, comment):
+        mOrderlist = Orderlist.objects.get(customergroup_id=self)
+        new_order = Order.objects.create(
+            status='q', comment=comment,
+            quantity=quantity, menu_id=menuId,
+            orderlist_id=mOrderlist)
+        new_order.save()
+        return True
+
+    def get_orderlist(self):
+        return Orderlist.objects.get(customergroup_id=self)
+
+    def get_order_list(self):
+        return Order.objects.prefetch_related(Order.menu_id).filter(orderlist_id=self.get_order_list())
+
+
 
 class Reservation(models.Model):
     firstname = models.CharField(max_length=50)
@@ -118,7 +134,7 @@ class Order(models.Model):
     orderlist_id = models.ForeignKey(Orderlist)
 
     def __str__(self):
-        return str(self.menu_id)+" ("+str(self.quantity)+")"
+        return str(self.menu_id.name)+" ("+str(self.quantity)+")"
 
 
 class Salaried(models.Model):
