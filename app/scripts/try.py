@@ -7,14 +7,17 @@ def run():
     m1 = Menu.objects.get(pk=1)
     e1 = Employee.objects.get(pk=1)
 
+
+    # test authenticate
     # print(User.authenticate('janin', 'jap')) #correct username, password
     # print(User.authenticate('janin', 'kuy')) #wrong password
     # print(User.authenticate('janinuy', 'jap')) #wrong username
     # print(User.authenticate('janinuy', 'kuy')) #wrong username, password
 
+    # print(DTable.objects.get(pk=1).status)
+    # print(Reservation.activate_table(1,1))
 
-    print(DTable.objects.get(pk=1).status)
-    print(Reservation.activate_table(1,1))
+    print(c1.get_order_list())
 
     # c1.add_to_orderlist(m1, 1, "-")
 

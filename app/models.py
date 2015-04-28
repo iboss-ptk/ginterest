@@ -65,7 +65,7 @@ class CustomerGroup(models.Model):
         return Orderlist.objects.get(customergroup_id=self)
 
     def get_order_list(self):
-        return Order.objects.filter(orderlist_id=self.get_orderlist()).select_related(Order.menu_id)
+        return Order.objects.all().filter(orderlist_id=self.get_orderlist())
 
 
 class Reservation(models.Model):

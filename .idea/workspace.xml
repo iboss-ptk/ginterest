@@ -33,7 +33,7 @@
           <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/serializers.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="2106">
+                <state vertical-scroll-proportion="0.0" vertical-offset="869" max-vertical-offset="2106">
                   <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
                   <folding>
                     <element signature="e#53#77#0" expanded="true" />
@@ -55,8 +55,8 @@
           <file leaf-file-name="try.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/scripts/try.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7858628" vertical-offset="0" max-vertical-offset="630">
-                  <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+                <state vertical-scroll-proportion="0.27071825" vertical-offset="141" max-vertical-offset="684">
+                  <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
                   <folding />
                 </state>
               </provider>
@@ -65,8 +65,8 @@
           <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="366" max-vertical-offset="5004">
-                  <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="1511" max-vertical-offset="5004">
+                  <caret line="111" column="17" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -79,8 +79,8 @@
           <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7130977" vertical-offset="1295" max-vertical-offset="5004">
-                  <caret line="91" column="19" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
+                <state vertical-scroll-proportion="6.418048" vertical-offset="655" max-vertical-offset="5004">
+                  <caret line="230" column="60" selection-start-line="230" selection-start-column="60" selection-end-line="230" selection-end-column="60" />
                   <folding />
                 </state>
               </provider>
@@ -563,7 +563,13 @@
       <option name="project" value="LOCAL" />
       <updated>1430201982835</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add method activate_table(DTable.id: Integer, CustomerGroup.id: Integer)">
+      <created>1430205928381</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1430205928381</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -588,19 +594,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="24" width="1533" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25384617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.274359" sideWeight="0.49964765" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24871795" sideWeight="0.49964765" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329602" sideWeight="0.5003524" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32820514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32820514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17152318" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12913907" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12847683" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -654,7 +660,8 @@
     <MESSAGE value="ignore .idea from PyCharm" />
     <MESSAGE value="add method authenticate(username: String, password: String)" />
     <MESSAGE value="(push attempt 2) add method authenticate(username: String, password: String)" />
-    <option name="LAST_COMMIT_MESSAGE" value="(push attempt 2) add method authenticate(username: String, password: String)" />
+    <MESSAGE value="add method activate_table(DTable.id: Integer, CustomerGroup.id: Integer)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add method activate_table(DTable.id: Integer, CustomerGroup.id: Integer)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1035,16 +1042,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2106">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <element signature="e#53#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="4932">
@@ -1053,18 +1050,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="869" max-vertical-offset="2106">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding>
+            <element signature="e#53#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/try.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7858628" vertical-offset="0" max-vertical-offset="630">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.27071825" vertical-offset="141" max-vertical-offset="684">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7130977" vertical-offset="1295" max-vertical-offset="5004">
-          <caret line="91" column="19" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
+        <state vertical-scroll-proportion="6.418048" vertical-offset="655" max-vertical-offset="5004">
+          <caret line="230" column="60" selection-start-line="230" selection-start-column="60" selection-end-line="230" selection-end-column="60" />
           <folding />
         </state>
       </provider>
