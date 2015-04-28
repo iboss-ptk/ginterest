@@ -9,13 +9,11 @@ li{
 .page-content{
 	background: #fff;
 }
-.login-screen-content,
-.table-wait-content{
+.red-content{
 	background: #AF180B;
 }
 .item-content,
-.list-button,
-.ads-slider .img{
+.list-button{
 	border-radius: 6px;  /*=======BORDER=======*/
 }
 .ginterest-login{
@@ -77,8 +75,7 @@ li{
 	-webkit-transform: translateY(-50%);
 }
 .ads-slider{
-	padding: 10px 10px 10px 10px;
-	width: 100%;
+	width: 80%;
 	height: 100%;
 }
 .ads-slider .img{
