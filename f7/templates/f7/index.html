@@ -80,7 +80,7 @@
 					</div>
 					<div class="list-block">
 					  <ul>
-						<li><a href="{% static 'f7/html/table/wait.html' %}" class="item-link list-button color-white">Log In</a></li>
+						<li><a href="{% static 'f7/html/reception.html' %}" class="item-link list-button color-white">Log In</a></li>
 					  </ul>
 					  <div class="list-block-label color-white">An advanced restaurant<br>database system</div>
 					</div>
@@ -92,6 +92,7 @@
       </div>
     </div>
 
+    <!--pop up-->
     <div class="popup getqueue-popup">
       <div class="view navbar-fixed">
         <div class="pages">
@@ -110,10 +111,104 @@
                             <input type="number"  placeholder="Number" >
                         </div>
                       </form>
-                      <div class="content-block red-bg-content">
-                            <a href="#" class="button form-to-json ">Submit</a>
+                      <div class="content-block ">
+                            <a href="#" class="button queue-form-json red-bg-content close-popup ">Submit</a>
                       </div>
                   </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup reserved-popup">
+      <div class="view navbar-fixed">
+        <div class="pages">
+          <div class="page">
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="center">Reserved</div>
+                <div class="right"><a href="#" class="link close-popup">X</a></div>
+              </div>
+            </div>
+            <div class="page-content">
+              <div class="content-block">
+                  <div class="list-block">
+                    <form>
+                    <ul>
+                        <!-- Text inputs -->
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">FirstName</div>
+                                            <div class="item-input">
+                                                <input type="text" placeholder="FirstName">
+                                            </div>
+                                    </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">LastName</div>
+                                            <div class="item-input">
+                                                <input type="text" placeholder="LastName">
+                                            </div>
+                                    </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-tel"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">Tel</div>
+                                            <div class="item-input">
+                                                <input type="text" placeholder="08XXXXXXXX">
+                                            </div>
+                                    </div>
+                            </div>
+                        </li>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-calendar"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">Reserved Date</div>
+                                    <div class="item-input">
+                                        <input type="date" placeholder="mm-dd-yyyy" value="04-30-2015">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-calendar"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">Reserved Time</div>
+                                    <div class="item-input">
+                                        <input type="time" placeholder="Reserved Time" value="13:37">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-calendar"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">Quantity</div>
+                                    <div class="item-input">
+                                        <input type="Number" placeholder="Number">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    </form>
+                      <div class="content-block ">
+                            <a href="#" class="button reserved-form-json red-bg-content close-popup ">Submit</a>
+                      </div>
               </div>
             </div>
           </div>

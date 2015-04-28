@@ -13,6 +13,11 @@ li{
 .login-screen-content{
 	background: #AF180B;
 }
+
+.white-bg-content{
+	background: #FFF;
+}
+
 .item-content,
 .list-button{
 	border-radius: 6px;  /*=======BORDER=======*/
@@ -38,6 +43,11 @@ li{
 .color-white{
 	color:#fff !important;
 }
+
+.color-red{
+	color:#AF180B !important;
+}
+
 .color-input{
 	color:#000 !important;
 }
