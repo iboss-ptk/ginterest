@@ -68,7 +68,6 @@ class CustomerGroup(models.Model):
         return Order.objects.filter(orderlist_id=self.get_orderlist()).select_related(Order.menu_id)
 
 
-
 class Reservation(models.Model):
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
@@ -80,6 +79,17 @@ class Reservation(models.Model):
 
     def __str__(self):
         return self.firstname+" "+str(self.reserved_time)
+
+    @staticmethod
+    def activate_table(table_id, customergroup_id):
+        m_orderlist = Orderlist.create_new_orderlist(table_id, customergroup_id)
+        m_table = DTable.objects.get(pk=table_id)
+        if m_table.status == 'u' | m_table.status == 'r':
+            return False
+        m_table.status = 'u'
+        m_table.save()
+        m_orderlist.save()
+        return True
 
 
 class Menu(models.Model):
@@ -98,6 +108,14 @@ class Orderlist(models.Model):
 
     def __str__(self):
         return str(self.dtable_id)
+
+    @staticmethod
+    def create_new_orderlist(table_id, customergroup_id):
+        new_orderlist = Orderlist.objects.create(
+            dtable_id=DTable.objects.get(pk=table_id),
+            customergroup_id=CustomerGroup.objects.get(pk=customergroup_id))
+        new_orderlist.save()
+        return new_orderlist
 
 
 class Employee(models.Model):
