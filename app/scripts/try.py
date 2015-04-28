@@ -3,9 +3,19 @@ from app.models import *
 def run():
     c1 = CustomerGroup.objects.get(pk=1)
     ol1 = Orderlist.objects.get(pk=1)
-    o1 = Order.objects.get(pk=1)
-    o2 = Order.objects.get(pk=2)
-    o3 = Order.objects.get(pk=3)
+    o1 = Order(status='q',comment='good',menu_id=m1, orderlist_id=ol1)
+    o2 = Order(status='q',comment='good',menu_id=m2, orderlist_id=ol1)
+    o3 = Order(status='q',comment='good',menu_id=m3, orderlist_id=ol1)
+    o4 = Order(status='q',comment='good',menu_id=m4, orderlist_id=ol1)
+    o5 = Order(status='q',comment='good',menu_id=m5, orderlist_id=ol1)
+    o6 = Order(status='q',comment='good',menu_id=m6, orderlist_id=ol1)
+
+    o1.save()
+    o2.save()
+    o3.save()
+    o4.save()
+
+
     m1 = Menu.objects.get(pk=1)
     e1 = Employee.objects.get(pk=1)
 
