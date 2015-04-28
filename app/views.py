@@ -137,12 +137,12 @@ class IngredientViewSet (viewsets.ModelViewSet):
     serializer_class = IngredientSerializer
 
 
-class SupplierViewSet (viewsets.ModelViewSet):
-    """
-    API endpoint that allows Supplier to be viewed or edited.
-    """
-    queryset = Supplier.objects.all()
-    serializer_class = SupplierSerializer
+# class SupplierViewSet (viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows Supplier to be viewed or edited.
+#     """
+#     queryset = Supplier.objects.all()
+#     serializer_class = SupplierSerializer
 
 
 class RecipeViewSet (viewsets.ModelViewSet):
@@ -161,17 +161,17 @@ class SitViewSet (viewsets.ModelViewSet):
     serializer_class = SitSerializer
 
 
-class InvoiceViewSet (viewsets.ModelViewSet):
-    """
-    API endpoint that allows Invoice to be viewed or edited.
-    """
-    queryset = Invoice.objects.all()
-    serializer_class = InvoiceSerializer
+# class InvoiceViewSet (viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows Invoice to be viewed or edited.
+#     """
+#     queryset = Invoice.objects.all()
+#     serializer_class = InvoiceSerializer
 
 
-class InInvoiceViewSet (viewsets.ModelViewSet):
-    """
-    API endpoint that allows InInvoice to be viewed or edited.
-    """
-    queryset = InInvoice.objects.all()
-    serializer_class = InInvoiceSerializer
+# class InInvoiceViewSet (viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows InInvoice to be viewed or edited.
+#     """
+#     queryset = InInvoice.objects.all()
+#     serializer_class = InInvoiceSerializer
