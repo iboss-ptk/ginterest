@@ -15,7 +15,7 @@
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="{% static 'f7/css/ginterest.css' %}">
   </head>
-  <body class="layout-null layout-dark theme-red">
+  <body class="layout-null theme-white" onload="hideNavBar()">
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar-overlay"></div>
     <!-- Panels overlay-->
@@ -37,15 +37,10 @@
       <!-- Your main view, should have "view-main" class-->
       <div class="view view-main">
 		<div class="navbar">
-		  <div class="navbar-inner">
-			<div class="left sliding"></div>
-			<div class="center sliding"></div>
-			<div class="right"></div>
-		  </div>
 		</div>
         <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
         <div class="pages navbar-through">
-		  <div data-page="login-screen-embedded" class="page no-toolbar no-navbar no-swipeback">
+		  <div data-page="login-screen-embedded modal-in" class="page no-toolbar no-navbar no-swipeback">
 			<div class="page-content login-screen-content">
 			  <div class="ginterest-login">
 				  <div class="login-screen-title ">
@@ -80,7 +75,7 @@
 					</div>
 					<div class="list-block">
 					  <ul>
-						<li><a href="{% static 'f7/html/table.html' %}" class="item-link list-button color-white">Log In</a></li>
+						<li><a href="{% static 'f7/html/table/wait.html' %}" class="item-link list-button color-white">Log In</a></li>
 					  </ul>
 					  <div class="list-block-label color-white">An advanced restaurant<br>database system</div>
 					</div>
@@ -95,5 +90,10 @@
     <script type="text/javascript" src="{% static 'f7/js/framework7.js' %}"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="{% static 'f7/js/ginterest.js' %}"></script>
+	<script>
+	function hideNavBar() {
+		mainView.hideNavbar();
+	}
+	</script>
   </body>
 </html>
