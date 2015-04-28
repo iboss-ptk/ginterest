@@ -19,7 +19,10 @@ def run():
     m1 = Menu.objects.get(pk=1)
     e1 = Employee.objects.get(pk=1)
 
-    print(Menu.get_all_menu())
+
+
+    print(c1.get_order_list())
+
     # test authenticate
     # print(User.authenticate('janin', 'jap')) #correct username, password
     # print(User.authenticate('janin', 'kuy')) #wrong password
