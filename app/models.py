@@ -42,6 +42,8 @@ class DTable(models.Model):
         return str(self.id)+' '+self.description
 
 
+
+
 class CustomerGroup(models.Model):
     number_of_customer = models.IntegerField(default=1)
     queue_no = models.IntegerField(default=0)
@@ -64,7 +66,18 @@ class CustomerGroup(models.Model):
         return Orderlist.objects.get(customergroup_id=self)
 
     def get_order_list(self):
-        return Order.objects.all().filter(orderlist_id=self.get_orderlist())
+        list = []
+        got_order = Order.objects.all().filter(orderlist_id=self.get_orderlist())
+        for order in got_order:
+            new_order = Order.objects.create(
+                name = order.menu_id.name,
+                quantity = order.quantity,
+                status = order.status,
+                price = order.menu_id.price
+            )
+            new_order.save()
+            list.append(new_order)
+        return list
 
 
 class Reservation(models.Model):
