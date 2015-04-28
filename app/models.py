@@ -66,7 +66,7 @@ class CustomerGroup(models.Model):
         return Orderlist.objects.get(customergroup_id=self)
 
     def get_order_list(self):
-        list = []
+        order_list = []
         got_order = Order.objects.all().filter(orderlist_id=self.get_orderlist())
         for order in got_order:
             new_order = Order.objects.create(
@@ -76,8 +76,8 @@ class CustomerGroup(models.Model):
                 price = order.menu_id.price
             )
             new_order.save()
-            list.append(new_order)
-        return list
+            order_list.append(new_order)
+        return order_list
 
 
 class Reservation(models.Model):
@@ -99,11 +99,14 @@ class Reservation(models.Model):
         if m_table.status == 'u' | m_table.status == 'r':
             return False
 
-        new_
+        new_sit = Sit.objects.create(
+            DTable.objects.get(pk=table_id),
+            CustomerGroup.objects.get(pk=customergroup_id))
         m_table.status = 'u'
 
         m_table.save()
         m_orderlist.save()
+        new_sit.save()
 
         return True
 
