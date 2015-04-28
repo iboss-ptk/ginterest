@@ -22,9 +22,8 @@ class User(models.Model):
         if User.objects.filter(username=username, password=password).exists():
             m_user = User.objects.get(username=username)
             return {'isAuthenticated': True,
-                    'user': m_user,
                     'username': m_user.username,
-                    'role_id': m_user.role_id}
+                    'role_id': m_user.role_id.id}
         return {'isAuthenticated': False}
 
 

@@ -1,3 +1,6 @@
+from rest_framework.decorators import detail_route, list_route
+from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
 from rest_framework import viewsets
 from app.serializers import *
 
@@ -16,6 +19,15 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    @list_route(methods=['post'])
+    def login(self, request):
+        """
+        Authenticate the user and store session
+        """
+        data = request.DATA
+        resp = User.authenticate(data['username'], data['password'])
+        return Response(resp)
 
 
 class DTableViewSet(viewsets.ModelViewSet):
