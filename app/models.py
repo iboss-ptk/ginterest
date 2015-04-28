@@ -193,6 +193,21 @@ class Order(models.Model):
     def __str__(self):
         return str(self.menu_id.name)+" ("+str(self.quantity)+")"
 
+    @staticmethod
+    def get_unserved_order_list():
+        m_order_list = Order.objects.all().prefetch_related('menu_id').filter(status='f')
+        unserved_order_list = []
+        for order in m_order_list:
+            unserved_order_list.append({
+                'order_id': order.id,
+                'menu_name': order.menu_id.name,
+                'menu_pic_path': order.menu_id.pic_path,
+                'table_id': order.orderlist_id.dtable_id.id,
+                'order_comment': order.comment,
+                'order_quantity': order.quantity
+            })
+        return unserved_order_list
+
 
 class Salaried(models.Model):
     employee_id = models.ForeignKey(Employee)
