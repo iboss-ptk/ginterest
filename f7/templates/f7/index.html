@@ -36,6 +36,13 @@
     <div class="views">
       <!-- Your main view, should have "view-main" class-->
       <div class="view view-main">
+		<div class="navbar">
+		  <div class="navbar-inner">
+			<div class="left sliding"></div>
+			<div class="center sliding"></div>
+			<div class="right"></div>
+		  </div>
+		</div>
         <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
         <div class="pages navbar-through">
 		  <div data-page="login-screen-embedded" class="page no-toolbar no-navbar no-swipeback">
@@ -73,7 +80,7 @@
 					</div>
 					<div class="list-block">
 					  <ul>
-						<li><a href="{% static 'f7/html/main.html' %}" class="item-link list-button color-white">Log In</a></li>
+						<li><a href="{% static 'f7/html/table.html' %}" class="item-link list-button color-white">Log In</a></li>
 					  </ul>
 					  <div class="list-block-label color-white">An advanced restaurant<br>database system</div>
 					</div>
