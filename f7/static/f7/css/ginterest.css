@@ -1,0 +1,51 @@
+/*
+	main-bg-color: #AF180B;
+*/
+
+html,
+li{
+	
+}.page-content{
+	background: #AF180B;
+}
+.item-content,
+.list-button{
+	border-radius: 6px;  /*=======BORDER=======*/
+}
+.ginterest-login{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+}
+.login-box .list-block{
+	margin: 10px auto!important;
+}
+.statusbar-overlay{
+	background: #AF180B !important;
+}
+.bold{
+	font-weight: normal;
+}
+.color-text{
+	color:#AF180B !important;
+}
+.color-white{
+	color:#fff !important;
+}
+.color-input{
+	color:#000 !important;
+}
+.color-input ::-webkit-input-placeholder{
+	color:#BDBDBD;
+}
+.item-content{
+	background:#fff;
+}
+.list-button{
+	color:#fff;
+	background:#AF180B;
+	border: 1px solid #fff;
+    padding: 10px 40px; 
+}
+
