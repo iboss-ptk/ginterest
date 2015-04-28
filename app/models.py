@@ -17,6 +17,16 @@ class User(models.Model):
     def __str__(self):
         return self.username
 
+    @staticmethod
+    def authenticate(username, password):
+        if User.objects.filter(username=username, password=password).exists():
+            m_user = User.objects.get(username=username)
+            return {'isAuthenticated': True,
+                    'user': m_user,
+                    'username': m_user.username,
+                    'role_id': m_user.role_id}
+        return {'isAuthenticated': False}
+
 
 class DTable(models.Model):
     TABLE_STATUSES = (
@@ -55,7 +65,7 @@ class CustomerGroup(models.Model):
         return Orderlist.objects.get(customergroup_id=self)
 
     def get_order_list(self):
-        return Order.objects.prefetch_related(Order.menu_id).filter(orderlist_id=self.get_order_list())
+        return Order.objects.filter(orderlist_id=self.get_orderlist()).select_related(Order.menu_id)
 
 
 

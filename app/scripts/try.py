@@ -7,9 +7,15 @@ def run():
     m1 = Menu.objects.get(pk=1)
     e1 = Employee.objects.get(pk=1)
 
-    c1.add_to_orderlist(m1, 1, "-")
+    print(User.authenticate('janin', 'jap')) #correct username, password
+    print(User.authenticate('janin', 'kuy')) #wrong password
+    print(User.authenticate('janinuy', 'jap')) #wrong username
+    print(User.authenticate('janinuy', 'kuy')) #wrong username, password
 
-    print(c1.get_order_list())
+    # c1.add_to_orderlist(m1, 1, "-")
+
+    # for m_order in c1.get_order_list():
+    #     print(m_order)
 
     # print(e1.is_chef()) # True
     # print(e1.fire())    # FIRED!
