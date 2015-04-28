@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 # Create your models here.
 
 
@@ -69,13 +70,16 @@ class CustomerGroup(models.Model):
         order_list = []
         got_orders = Order.objects.all().filter(orderlist_id=self.get_orderlist())
         for order in got_orders:
-            order_list.append({
+            order_obj = {
                 'name': order.menu_id.name,
                 'quantity': order.quantity,
                 'status': order.status,
                 'price': order.menu_id.price
-                })
+            }
+            order_list.append(order_obj)
         return order_list
+
+    #TODO change exitTIme to datetime.dateime.now().time() when checkout
 
 
 class Reservation(models.Model):
@@ -147,6 +151,9 @@ class Orderlist(models.Model):
         return new_orderlist
 
 
+
+
+
 class Employee(models.Model):
     CHEF = 'c'
     EMPLOYEE_ROLES = (
@@ -207,6 +214,15 @@ class Order(models.Model):
                 'order_quantity': order.quantity
             })
         return unserved_order_list
+
+    @staticmethod
+    def serve_order(order_id):
+        if not Order.objects.get(pk=order_id, status='f').exist():
+            return False
+        m_order = Order.objects.get(pk=order_id)
+        m_order.status = 's'
+        m_order.save()
+        return True
 
 
 class Salaried(models.Model):
