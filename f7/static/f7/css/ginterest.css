@@ -13,8 +13,12 @@ li{
 .login-screen-content{
 	background: #AF180B;
 }
+.grey-bg-content{
+	background: #FBFBFB;
+}
 .item-content,
-.list-button{
+.list-button,
+.place-order-menu-col img{
 	border-radius: 5px;  /*=======BORDER=======*/
 }
 .ginterest-login{
@@ -49,6 +53,7 @@ li{
 }
 .list-button{
 	color:#fff;
+	font-size: 16px;
 	background:#AF180B;
 	border: 1px solid #fff;
     padding: 10px 40px; 
@@ -71,16 +76,38 @@ li{
 	text-align: center;
 }
 .table-button{
+	width: 30vh;
 	position: relative;
 	background:#AF180B;
 	border: 2px solid #fff;
-    padding: 4vh 5vh; 
-	margin-bottom: 4vh;
-	margin-left: 3vh;
+    padding: 5vh 5vh; 
+	margin: 2vh 0 2vh 0;
 	display: block;
-	font-size: 5vh;
+	font-size: 3vh;
 	text-align: center;
 	border-radius: 8px;  
+}
+.align-left{
+	position: relative;
+	align-content: flex-start;
+	display: flex;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+}
+.align-center{
+	position: relative;
+	align-content: center;
+	display: flex;
+	text-align: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+.align-right{
+	position: relative;
+	align-content: flex-end;
+	display: flex;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
 }
 .table-button img{
 	max-width: 10vh;
@@ -96,4 +123,22 @@ li{
 	max-width:100%;
 	max-height:100%;
 }
-
+.place-order-col{
+	position: relative;
+	overflow: auto;
+	height: calc(100vh - 177px);
+	margin: 5px 5px;
+}
+.place-order-menu-col{
+	position: relative;
+	overflow: auto;
+	height: calc(100vh - 44px);
+}
+.place-order-menu-col img{
+	height: 100px;
+	width: 120px;
+	margin: 5px 10px 0 20px;
+}
+.content-block-title{
+	margin: 15px 15px;
+}
