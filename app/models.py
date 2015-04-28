@@ -86,13 +86,10 @@ class CustomerGroup(models.Model):
             order_list.append(order_obj)
         return order_list
 
-<<<<<<< HEAD
     @staticmethod
     def get_checkingout_orderlist():
         return
 
-=======
->>>>>>> 00c37df201574af8bc3e23d54233405477d25f59
     #TODO change exitTIme to datetime.dateime.now().time() when checkout
 
 
