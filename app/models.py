@@ -57,7 +57,7 @@ class CustomerGroup(models.Model):
         mOrderlist = Orderlist.objects.get(customergroup_id=self)
         new_order = Order.objects.create(
             status='q', comment=comment,
-            quantity=quantity, menu_id=menuId,
+            quantity=quantity, menu_id=Menu.objects.get(pk=menuId),
             orderlist_id=mOrderlist)
         new_order.save()
         return True
@@ -125,7 +125,8 @@ class Menu(models.Model):
             menu_list.append({
                 'name': menu.name,
                 'description': menu.description,
-                'pic_path': menu.pic_path,
+                # TODO: pic upload setup
+                # 'pic_path': menu.pic_path,
                 'price': menu.price
                 })
         return menu_list
