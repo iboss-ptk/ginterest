@@ -86,13 +86,23 @@ class CustomerGroup(models.Model):
             order_list.append(order_obj)
         return order_list
 
-    @
-
     @staticmethod
-    def get_checkingout_orderlist():
+    def checkedout(customergroup_id):
+        m_customergroup = CustomerGroup.objects.get(pk=customergroup_id)
+        m_customergroup.exit_time = datetime.dateime.now().time()
+        m_customergroup.save()
+
+        m_table = Sit.get_table_of_customergroup(customergroup_id)
+        m_table.status = 'o'
+        m_table.save()
+
         return
 
-    #TODO change exitTIme to datetime.dateime.now().time() when checkout
+
+    # @staticmethod
+    # def get_checkingout_orderlist():
+    #     return
+
 
 
 class Reservation(models.Model):
@@ -296,8 +306,17 @@ class Sit(models.Model):
 
     @staticmethod
     def get_sitting_customergroup(table_id):
-        m_sit = Sit.objects.filter(table_id=table_id).last()
+        m_sit = Sit.objects.filter(
+            table_id=DTable.objects.get(pk=table_id)).last()
         return m_sit.customer_id
+
+    @staticmethod
+    def get_table_of_customergroup(customergroup_id):
+        m_sit = Sit.objects.filter(
+            customer_id=CustomerGroup.objects.get(pk=customergroup_id)).last()
+        return m_sit.table_id
+
+
 
 class Invoice(models.Model):
     INVOICE_STATUSES = (
