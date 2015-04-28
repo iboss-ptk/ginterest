@@ -4,10 +4,12 @@ def run():
     c1 = CustomerGroup.objects.get(pk=1)
     ol1 = Orderlist.objects.get(pk=1)
     o1 = Order.objects.get(pk=1)
+    o2 = Order.objects.get(pk=2)
+    o3 = Order.objects.get(pk=3)
     m1 = Menu.objects.get(pk=1)
     e1 = Employee.objects.get(pk=1)
 
-
+    print(Menu.get_all_menu())
     # test authenticate
     # print(User.authenticate('janin', 'jap')) #correct username, password
     # print(User.authenticate('janin', 'kuy')) #wrong password

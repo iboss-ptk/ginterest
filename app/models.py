@@ -67,16 +67,14 @@ class CustomerGroup(models.Model):
 
     def get_order_list(self):
         order_list = []
-        got_order = Order.objects.all().filter(orderlist_id=self.get_orderlist())
-        for order in got_order:
-            new_order = Order.objects.create(
-                name = order.menu_id.name,
-                quantity = order.quantity,
-                status = order.status,
-                price = order.menu_id.price
-            )
-            new_order.save()
-            order_list.append(new_order)
+        got_orders = Order.objects.all().filter(orderlist_id=self.get_orderlist())
+        for order in got_orders:
+            order_list.append({
+                'name': order.menu_id.name,
+                'quantity': order.quantity,
+                'status': order.status,
+                'price': order.menu_id.price
+                })
         return order_list
 
 
@@ -119,6 +117,18 @@ class Menu(models.Model):
 
     def __str__(self):
         return self.name
+
+    @staticmethod
+    def get_all_menu():
+        menu_list = []
+        for menu in Menu.objects.all():
+            menu_list.append({
+                'name': menu.name,
+                'description': menu.description,
+                'pic_path': menu.pic_path,
+                'price': menu.price
+                })
+        return menu_list
 
 
 class Orderlist(models.Model):
@@ -277,15 +287,3 @@ class InInvoice(models.Model):
 
     def __str__(self):
         return str(self.ingredient_id)+"x"+str(self.quantity_bought)+" @"+str(self.invoice_id)+" $"+str(self.price)
-
-
-# for testing
-class AllFreakingFunction(models.Model):
-    def total_income(cg):
-        total = 0
-        orderL = Orderlist.objects.get(customergroup_id=cg)
-        allOrders = Order.objects.all().prefetch_related(orderL)
-        for order in allOrders:
-                morder = Menu.objects.all().prefetch_releated(order)
-                total+= (order.quantity)*(morder.price)
-        return total
