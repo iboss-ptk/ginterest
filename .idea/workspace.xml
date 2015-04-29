@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9942394c-953b-4b87-94e8-c31c60222e6f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/f7/static/f7/js/ginterest.js" afterPath="$PROJECT_DIR$/f7/static/f7/js/ginterest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/f7/static/f7/html/table/place-order.html" afterPath="$PROJECT_DIR$/f7/static/f7/html/table/place-order.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/f7/static/f7/js/Controllers/table.js" afterPath="$PROJECT_DIR$/f7/static/f7/js/Controllers/table.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ginterest.iws" />
@@ -453,7 +451,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25373134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2636816" sideWeight="0.49964765" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -520,7 +518,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;app/__pycache__/views.cpython-34.pyc&#10;" />
     <MESSAGE value="call next queue" />
     <MESSAGE value="add order to orderlist" />
-    <option name="LAST_COMMIT_MESSAGE" value="add order to orderlist" />
+    <MESSAGE value="Merge branch 'master' of github.com:iboss-ptk/ginterest&#10;&#10;Conflicts:&#10;&#9;app/__pycache__/views.cpython-34.pyc&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of github.com:iboss-ptk/ginterest&#10;&#10;Conflicts:&#10;&#9;app/__pycache__/views.cpython-34.pyc&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
