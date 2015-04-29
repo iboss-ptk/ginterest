@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9942394c-953b-4b87-94e8-c31c60222e6f" name="Default" comment="is_table_vacant">
+    <list default="true" id="9942394c-953b-4b87-94e8-c31c60222e6f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models.py" afterPath="$PROJECT_DIR$/app/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -26,7 +26,7 @@
     <favorites_list name="ginterest" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.60600543">
+    <splitter split-orientation="horizontal" split-proportion="0.7676497">
       <split-first>
         <leaf>
           <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
@@ -44,8 +44,8 @@
           <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3604061" vertical-offset="578" max-vertical-offset="7182">
-                  <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+                <state vertical-scroll-proportion="0.5025381" vertical-offset="3402" max-vertical-offset="7272">
+                  <caret line="200" column="23" selection-start-line="200" selection-start-column="23" selection-end-line="200" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                   </folding>
@@ -56,8 +56,8 @@
           <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="4050">
-                  <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4050">
+                  <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#62#0" expanded="true" />
                   </folding>
@@ -72,8 +72,8 @@
           <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.37176472" vertical-offset="3640" max-vertical-offset="7182">
-                  <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
+                <state vertical-scroll-proportion="-1.9905882" vertical-offset="1998" max-vertical-offset="7272">
+                  <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                   </folding>
@@ -562,7 +562,13 @@
       <option name="project" value="LOCAL" />
       <updated>1430316269536</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="is_table_vacant">
+      <created>1430317693886</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1430317693886</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -658,7 +664,8 @@
     <MESSAGE value="add_order_to_orderlist" />
     <MESSAGE value="add_order_to_orderlist WITHDONE" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="is_table_vacant" />
+    <option name="LAST_COMMIT_MESSAGE" value="is_table_vacant" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -942,8 +949,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="4050">
-          <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4050">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
           <folding>
             <element signature="e#0#62#0" expanded="true" />
           </folding>
@@ -962,8 +969,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3604061" vertical-offset="578" max-vertical-offset="7182">
-          <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.5025381" vertical-offset="3402" max-vertical-offset="7272">
+          <caret line="200" column="23" selection-start-line="200" selection-start-column="23" selection-end-line="200" selection-end-column="23" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

@@ -199,7 +199,8 @@ class Orderlist(models.Model):
     @staticmethod
     def get_checkingout_orderlist(dtable_id):
         order_list = []
-        orders = Order.objects.all().prefetch_related('orderlist_id').filter(dtable_id=dtable_id)
+        orderlist = Orderlist.objects.all().get(dtable_id=dtable_id).last()
+        orders = Order.objects.all().filter(orderlist_id=orderlist)
         for order in orders:
             order_list.append({
                 'menu_name': order.menu_id.name,
@@ -239,9 +240,13 @@ class Employee(models.Model):
 
     @staticmethod
     def total_income():
+        income = 0
         orderlists = Orderlist.objects.all().prefetch_related('customergroup_id').filter(exist=False)
-        #TODO
-        return
+        for orderlist in orderlists:
+            orders = Order.objects.all().filter(orderlist_id=orderlist)
+            for order in orders:
+                income += order.menu_id.price
+        return income
 
 
 class Order(models.Model):
