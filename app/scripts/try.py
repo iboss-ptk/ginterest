@@ -3,16 +3,24 @@ from app.models import *
 def run():
     c1 = CustomerGroup.objects.get(pk=1)
     ol1 = Orderlist.objects.get(pk=1)
-    o1 = Order.objects.get(pk=1)
-    o2 = Order.objects.get(pk=2)
-    o3 = Order.objects.get(pk=3)
     m1 = Menu.objects.get(pk=1)
     e1 = Employee.objects.get(pk=1)
 
+    o1 = Order(status='q',comment='good',menu_id=m1, orderlist_id=ol1)
+    o2 = Order(status='q',comment='good',menu_id=m1, orderlist_id=ol1)
+    o3 = Order(status='q',comment='good',menu_id=m1, orderlist_id=ol1)
+    o4 = Order(status='q',comment='good',menu_id=m1, orderlist_id=ol1)
+    o5 = Order(status='q',comment='good',menu_id=m1, orderlist_id=ol1)
+    o6 = Order(status='q',comment='good',menu_id=m1, orderlist_id=ol1)
 
+    o1.save()
+    o2.save()
+    o3.save()
+    o4.save()
 
     print(c1.get_order_list())
-
+    print('hi')
+    print(ol1.total_price())
     # test authenticate
     # print(User.authenticate('janin', 'jap')) #correct username, password
     # print(User.authenticate('janin', 'kuy')) #wrong password

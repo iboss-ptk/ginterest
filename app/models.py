@@ -27,22 +27,29 @@ class User(models.Model):
                     'role_id': m_user.role_id.id}
         return {'isAuthenticated': False}
 
+    def get_table_id(self):
+        if self.role_id.name == 'TableScreen':
+            table_obj = DTable.objects.all().filter(user_id=self.id)
+            return table_obj.id
+        else:
+            return None
+
 
 class DTable(models.Model):
     TABLE_STATUSES = (
         ('u', 'InUsed'),
         ('o', 'Vacant'),
         ('r', 'Reserved'),
+        ('c', 'Checking out'),
     )
     status = models.CharField(max_length=1, choices=TABLE_STATUSES, default='o')
     description = models.CharField(max_length=200)
     capacity = models.IntegerField(default=2)
     main_table = models.IntegerField(default=-1)
+    user_id = models.ForeignKey(User)
 
     def __str__(self):
         return str(self.id)+' '+self.description
-
-
 
 
 class CustomerGroup(models.Model):
@@ -79,7 +86,23 @@ class CustomerGroup(models.Model):
             order_list.append(order_obj)
         return order_list
 
-    #TODO change exitTIme to datetime.dateime.now().time() when checkout
+    @staticmethod
+    def checkedout(customergroup_id):
+        m_customergroup = CustomerGroup.objects.get(pk=customergroup_id)
+        m_customergroup.exit_time = datetime.dateime.now().time()
+        m_customergroup.save()
+
+        m_table = Sit.get_table_of_customergroup(customergroup_id)
+        m_table.status = 'o'
+        m_table.save()
+
+        return
+
+
+    # @staticmethod
+    # def get_checkingout_orderlist():
+    #     return
+
 
 
 class Reservation(models.Model):
@@ -122,18 +145,6 @@ class Menu(models.Model):
     def __str__(self):
         return self.name
 
-    @staticmethod
-    def get_all_menu():
-        menu_list = []
-        for menu in Menu.objects.all():
-            menu_list.append({
-                'name': menu.name,
-                'description': menu.description,
-                'pic_path': menu.pic_path,
-                'price': menu.price
-                })
-        return menu_list
-
 
 class Orderlist(models.Model):
     dtable_id = models.ForeignKey(DTable)
@@ -149,9 +160,12 @@ class Orderlist(models.Model):
             customergroup_id=CustomerGroup.objects.get(pk=customergroup_id))
         new_orderlist.save()
         return new_orderlist
-
-
-
+    # TODO
+    # @staticmethod
+    # def get_all_table_orderlist(self):
+    #     orderlist_list = []
+    #     dtables = DTable.objects.
+    #     return orderlist_list
 
 
 class Employee(models.Model):
@@ -289,6 +303,19 @@ class Sit(models.Model):
 
     def __str__(self):
         return str(self.customer_id)+" @"+str(self.table_id)
+
+    @staticmethod
+    def get_sitting_customergroup(table_id):
+        m_sit = Sit.objects.filter(
+            table_id=DTable.objects.get(pk=table_id)).last()
+        return m_sit.customer_id
+
+    @staticmethod
+    def get_table_of_customergroup(customergroup_id):
+        m_sit = Sit.objects.filter(
+            customer_id=CustomerGroup.objects.get(pk=customergroup_id)).last()
+        return m_sit.table_id
+
 
 
 class Invoice(models.Model):
