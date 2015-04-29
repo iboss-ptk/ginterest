@@ -143,7 +143,7 @@ class Reservation(models.Model):
     def activate_table(table_id, customergroup_id):
         m_orderlist = Orderlist.create_new_orderlist(table_id, customergroup_id)
         m_table = DTable.objects.get(pk=table_id)
-        if m_table.status == 'u' | m_table.status == 'r':
+        if m_table.status == 'u' or m_table.status == 'r':
             return False
 
         new_sit = Sit.objects.create(
