@@ -28,7 +28,7 @@ class User(models.Model):
         return {'isAuthenticated': False}
 
     def get_table_id(self):
-        if self.role_id.name == 'TableScreen':
+        if self.role_id == 1:
             table_obj = DTable.objects.all().filter(user_id=self.id)
             return table_obj.id
         else:

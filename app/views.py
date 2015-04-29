@@ -28,6 +28,8 @@ class UserViewSet(viewsets.ModelViewSet):
         """
         data = request.DATA
         resp = User.authenticate(data['username'], data['password'])
+        if resp['role_id'] == 1:
+            resp['table_id'] = 1
         return Response(resp)
 
 
