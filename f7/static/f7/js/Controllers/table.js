@@ -30,7 +30,7 @@ myApp.onPageInit('place-order', function(page){
 				menu = result.results;
 				for(var i=0;i<menu.length;i++){
 					var menuName = menu[i].name;
-					var menuPic = "static/f7/img/menu.jpg";
+					var menuPic = "static/f7/img/menu-"+menu[i].id+".jpg";
 					var menuId = menu[i].id;
 					var menuDesc = menu[i].description;
 					var menuPrice = menu[i].price+' Baht';
@@ -69,8 +69,9 @@ myApp.onPageInit('place-order', function(page){
 						);
 						var total = parseInt($$('#menu-total').text());
 						$$('#menu-total').text(total+menu[index].price);
+						$$('.place-order-col').scrollTop($$('.place-order-col').height());
 						orderList.push(menu[index]);
-						console.log(orderList);
+						//console.log(orderList);
 					});
 				}
 			}

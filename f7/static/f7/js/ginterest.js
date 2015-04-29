@@ -75,6 +75,21 @@ function init(){
 			}
 		})
     });
+	
+	$$('.logOutButton').on('click', function () {
+		myApp.actions([[{
+			text: 'Log Out',
+			color: 'red',
+			onClick: function() {
+				myApp.closePanel();
+				mainView.goBack();
+				mainView.hideNavbar();
+			}
+		}], [{
+			text: 'Cancel',
+			bold: true
+		}]]);
+	});
 }
 
 init();

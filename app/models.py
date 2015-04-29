@@ -70,16 +70,16 @@ class CustomerGroup(models.Model):
         return str(self.enter_time)+' ('+str(self.number_of_customer)+')'
 
     def add_to_orderlist(self, menuId, quantity, comment):
-        mOrderlist = Orderlist.objects.get(customergroup_id=self)
+        mOrderlist = Orderlist.objects.filter(customergroup_id=self)[0]
         new_order = Order.objects.create(
             status='q', comment=comment,
-            quantity=quantity, menu_id=menuId,
+            quantity=quantity, menu_id_id=menuId,
             orderlist_id=mOrderlist)
         new_order.save()
         return True
 
     def get_orderlist(self):
-        return Orderlist.objects.get(customergroup_id=self)
+        return Orderlist.objects.filter(customergroup_id=self)[0]
 
     def get_order_list(self):
         order_list = []
