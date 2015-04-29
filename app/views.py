@@ -85,11 +85,16 @@ class CustomerGroupViewSet(viewsets.ModelViewSet):
         resp = {'order_list': order_list}
         return Response(resp)
 
-    @detail_route()
+    @list_route(methods=['post'])
     def checkout(self, request):
-        resp = {"a": 123}
-        return Response(resp)
+        id = request.DATA['customergroup_id']
+        CustomerGroup.checkedout(customergroup_id=id)
+        return Response({'success': True})
 
+    @list_route(methods=['post'])
+    def call_next_queue(self, request):
+        next_queue = request.DATA['current_queue']+1
+        return Response({'next_queue': next_queue})
 
 class ReservationViewSet(viewsets.ModelViewSet):
     """

@@ -113,7 +113,7 @@ class CustomerGroup(models.Model):
     @staticmethod
     def checkedout(customergroup_id):
         m_customergroup = CustomerGroup.objects.get(pk=customergroup_id)
-        m_customergroup.exit_time = datetime.dateime.now().time()
+        m_customergroup.exit_time = datetime.datetime.now()
         m_customergroup.save()
 
         m_table = Sit.get_table_of_customergroup(customergroup_id)
