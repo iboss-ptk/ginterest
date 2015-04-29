@@ -1,8 +1,10 @@
 // Initialize your app
 var myApp = new Framework7({
 	modalTitle: '',
+	swipePanel: 'right'
 });
 
+var table_id;
 // Export selectors engine
 var $$ = Dom7;
 
@@ -21,7 +23,7 @@ function init(){
 			"username": $$('#username').val(),
 			"password": $$('#password').val()
 		};
-		myApp.showPreloader('Logging in...')
+		myApp.showPreloader('Logging in...');
         $$.ajax({
 			url: 'api/user/login/', 
 			method: 'post',
@@ -30,6 +32,7 @@ function init(){
 				//console.log(result);
 				myApp.hidePreloader();
 				result = JSON.parse(result);
+				table_id = result.table_id;
 				if(result.isAuthenticated){
 					switch(result.role_id){
 						case 1: mainView.router.loadPage('static/f7/html/table/wait.html'); break;
@@ -42,7 +45,7 @@ function init(){
 				}	
 			},
 			error: function(result){
-				//console.log(result.statusText);
+				//console.log(result);
 				myApp.hidePreloader();
 				myApp.alert(result.statusText);
 			}
@@ -51,9 +54,6 @@ function init(){
 }
 
 init();
-
-// Callbacks to run specific code for specific pages
-myApp.onPageInit('login-screen-embedded', function(page){});
 
 // Generate dynamic page
 var dynamicPageIndex = 0;
