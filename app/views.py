@@ -29,11 +29,11 @@ class UserViewSet(viewsets.ModelViewSet):
         data = request.DATA
         resp = User.authenticate(data['username'], data['password'])
 
-        if resp['isAuthenticated']:
+        # if resp['isAuthenticated']:
             # TODO: need get_table_id. none if not table
             # if User.objects.get(pk=resp.id) =
-            request.session['user_id'] = resp.id
-            request.session['role_id'] = resp.role_id
+            # request.session['username'] = resp.user
+            # request.session['role_id'] = resp.role_id
         return Response(resp)
 
 

@@ -10,13 +10,24 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: true
 });
 
-// Callbacks to run specific code for specific pages, for example for About page:
-myApp.onPageInit('about', function (page) {
+
+function init(){
+	console.log('init');
     // run createContentPage func after link was clicked
-    $$('.create-page').on('click', function () {
-        createContentPage();
+	var data = {
+		username: $$('#username').val(),
+		password: $$('#password').val()
+	};
+	
+    $$('#login-table').on('click', function () {
+        $$.post('api/user/authenticate', data, function(result){
+			console.log(result);
+		})
     });
-});
+}
+
+// Callbacks to run specific code for specific pages
+myApp.onPageInit('login-screen-embedded', init());
 
 // Generate dynamic page
 var dynamicPageIndex = 0;
