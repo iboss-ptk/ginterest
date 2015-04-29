@@ -22,14 +22,25 @@ function init(){
 			"password": $$('#password').val()
 		};
 		myApp.showPreloader('Logging in...')
-        $$.post('api/user/login/', data, function(result){
-			myApp.hidePreloader();
-			result = JSON.parse(result);
-			if(result.isAuthenticated){
-				mainView.router.loadPage('static/f7/html/table/wait.html');
-			}else{
-				 myApp.alert('Incorrect<br>username or password');
-			}	
+        $$.ajax({
+			url: 'api/user/login/', 
+			method: 'post',
+			data: data,
+			success: function(result){
+				//console.log(result);
+				myApp.hidePreloader();
+				result = JSON.parse(result);
+				if(result.isAuthenticated){
+					mainView.router.loadPage('static/f7/html/table/wait.html');
+				}else{
+					 myApp.alert('Incorrect<br>username or password');
+				}	
+			},
+			error: function(result){
+				//console.log(result.statusText);
+				myApp.hidePreloader();
+				myApp.alert(result.statusText);
+			}
 		})
     });
 }
