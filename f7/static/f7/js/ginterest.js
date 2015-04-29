@@ -45,8 +45,10 @@ function init(){
     });
 }
 
+init();
+
 // Callbacks to run specific code for specific pages
-myApp.onPageInit('login-screen-embedded', init());
+myApp.onPageInit('login-screen-embedded', function(page){});
 
 // Generate dynamic page
 var dynamicPageIndex = 0;
