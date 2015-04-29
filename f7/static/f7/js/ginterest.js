@@ -14,14 +14,16 @@ var mainView = myApp.addView('.view-main', {
 function init(){
 	console.log('init');
     // run createContentPage func after link was clicked
-	var data = {
-		username: $$('#username').val(),
-		password: $$('#password').val()
-	};
-	
+
     $$('#login-table').on('click', function () {
-        $$.post('api/user/authenticate', data, function(result){
-			console.log(result);
+		var data = {
+		"username": $$('#username').val(),
+		"password": $$('#password').val()
+	};
+		//console.log(data);
+        $$.post('api/user/login/', data, function(result){
+			result = JSON.parse(result);
+			console.log(result.isAuthenticated);
 		})
     });
 }
