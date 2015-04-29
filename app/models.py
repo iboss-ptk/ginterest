@@ -57,6 +57,7 @@ class CustomerGroup(models.Model):
     queue_no = models.IntegerField(default=0)
     enter_time = models.DateTimeField(auto_now_add=True)
     exit_time = models.DateTimeField(auto_now_add=True)
+    exist = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.enter_time)+' ('+str(self.number_of_customer)+')'
@@ -87,10 +88,22 @@ class CustomerGroup(models.Model):
         return order_list
 
     @staticmethod
-    def get_checkingout_orderlist():
+    def checkedout(customergroup_id):
+        m_customergroup = CustomerGroup.objects.get(pk=customergroup_id)
+        m_customergroup.exit_time = datetime.dateime.now().time()
+        m_customergroup.save()
+
+        m_table = Sit.get_table_of_customergroup(customergroup_id)
+        m_table.status = 'o'
+        m_table.save()
+
         return
 
-    #TODO change exitTIme to datetime.dateime.now().time() when checkout
+
+    # @staticmethod
+    # def get_checkingout_orderlist():
+    #     return
+
 
 
 class Reservation(models.Model):
@@ -141,13 +154,6 @@ class Orderlist(models.Model):
     def __str__(self):
         return str(self.dtable_id)
 
-    def total_price(self):
-        price = 0
-        orders = Order.objects.all().filter(orderlist_id=self)
-        for order in orders:
-            price += order.menu_id.price
-        return price
-
     @staticmethod
     def create_new_orderlist(table_id, customergroup_id):
         new_orderlist = Orderlist.objects.create(
@@ -155,29 +161,12 @@ class Orderlist(models.Model):
             customergroup_id=CustomerGroup.objects.get(pk=customergroup_id))
         new_orderlist.save()
         return new_orderlist
-
-    @staticmethod
-    def get_all_checking_out_orderlist_list():
-        orderlist_list = []
-        orderlists = Orderlist.object.all().prefetch_related('dtable_id').filter(status='c')
-        for orderlist in orderlists:
-            orderlist_list.append({
-                'dtable_id': orderlist.dtable_id.id,
-                'total_price': orderlist.total_price()
-            })
-        return orderlist_list
-
-    @staticmethod
-    def get_checkingout_orderlist(dtable_id):
-        order_list = []
-        orders = Order.objects.all().prefetch_related('orderlist_id').filter(dtable_id=dtable_id)
-        for order in orders:
-            order_list.append({
-                'menu_name': order.menu_id.name,
-                'quantity': order.quantity,
-                'price': order.menu_id.price
-            })
-        return order_list
+    # TODO
+    # @staticmethod
+    # def get_all_table_orderlist(self):
+    #     orderlist_list = []
+    #     dtables = DTable.objects.
+    #     return orderlist_list
 
 
 class Employee(models.Model):
@@ -207,6 +196,11 @@ class Employee(models.Model):
     def fire(self):
         self.role = 'f'
         return 'FIRED!'
+
+    @staticmethod
+    def total_income():
+
+        return
 
 
 class Order(models.Model):
@@ -293,11 +287,11 @@ class Ingredient(models.Model):
         return self.name
 
 
-# class Supplier(models.Model):
-#     name = models.CharField(max_length=40)
-#
-#     def __str__(self):
-#         return self.name
+class Supplier(models.Model):
+    name = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.name
 
 
 class Recipe(models.Model):
@@ -316,31 +310,43 @@ class Sit(models.Model):
     def __str__(self):
         return str(self.customer_id)+" @"+str(self.table_id)
 
+    @staticmethod
+    def get_sitting_customergroup(table_id):
+        m_sit = Sit.objects.filter(
+            table_id=DTable.objects.get(pk=table_id)).last()
+        return m_sit.customer_id
 
-# class Invoice(models.Model):
-#     INVOICE_STATUSES = (
-#         ('p', 'Pending'),
-#         ('o', 'Ordered'),
-#         ('d', 'Delivering'),
-#         ('f', 'Delivered'),
-#     )
-#     date = models.DateTimeField('date published')
-#     supplier_id = models.ForeignKey(Supplier)
-#     status = models.CharField(max_length=1, choices=INVOICE_STATUSES, default='p')
-#
-#     def __str__(self):
-#         return str(self.supplier_id)+" @"+str(self.date)
-#
-#     def invoice_approve(self):
-#         self.status = 'o'
-#         return True
-#
-#
-# class InInvoice(models.Model):
-#     ingredient_id = models.ForeignKey(Ingredient)
-#     invoice_id = models.ForeignKey(Invoice)
-#     quantity_bought = models.IntegerField(default=1)
-#     price = models.FloatField(default=1)
-#
-#     def __str__(self):
-#         return str(self.ingredient_id)+"x"+str(self.quantity_bought)+" @"+str(self.invoice_id)+" $"+str(self.price)
+    @staticmethod
+    def get_table_of_customergroup(customergroup_id):
+        m_sit = Sit.objects.filter(
+            customer_id=CustomerGroup.objects.get(pk=customergroup_id)).last()
+        return m_sit.table_id
+
+
+class Invoice(models.Model):
+    INVOICE_STATUSES = (
+        ('p', 'Pending'),
+        ('o', 'Ordered'),
+        ('d', 'Delivering'),
+        ('f', 'Delivered'),
+    )
+    date = models.DateTimeField('date published')
+    supplier_id = models.ForeignKey(Supplier)
+    status = models.CharField(max_length=1, choices=INVOICE_STATUSES, default='p')
+
+    def __str__(self):
+        return str(self.supplier_id)+" @"+str(self.date)
+
+    def invoice_approve(self):
+        self.status = 'o'
+        return True
+
+
+class InInvoice(models.Model):
+    ingredient_id = models.ForeignKey(Ingredient)
+    invoice_id = models.ForeignKey(Invoice)
+    quantity_bought = models.IntegerField(default=1)
+    price = models.FloatField(default=1)
+
+    def __str__(self):
+        return str(self.ingredient_id)+"x"+str(self.quantity_bought)+" @"+str(self.invoice_id)+" $"+str(self.price)

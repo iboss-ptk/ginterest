@@ -2,6 +2,7 @@ from rest_framework.decorators import detail_route, list_route
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework import viewsets
+from app.models import *
 from app.serializers import *
 
 
@@ -27,7 +28,10 @@ class UserViewSet(viewsets.ModelViewSet):
         """
         data = request.DATA
         resp = User.authenticate(data['username'], data['password'])
+
         if resp['isAuthenticated']:
+            # TODO: need get_table_id. none if not table
+            # if User.objects.get(pk=resp.id) =
             request.session['user_id'] = resp.id
             request.session['role_id'] = resp.role_id
         return Response(resp)
@@ -41,15 +45,22 @@ class DTableViewSet(viewsets.ModelViewSet):
     serializer_class = DTableSerializer
 
     @detail_route()
-    def wait_for_activation(self):
+    def wait_for_activation(self, request, pk=None):
         resp = {'status': self.get_object().status}
         return Response(resp)
 
-    @detail_route()
-    def get_all_menu(self):
-        # TODO: wait for Ong's dtable get all menu
-        resp = None
+    @list_route()
+    def get_all_menu(self, request):
+        menu_list = Menu.get_all_menu()
+        resp = {'menu_list': menu_list}
         return Response(resp)
+
+    @list_route(methods=['post'])
+    def activate_table(self, request):
+        is_successful = DTable.activate_table(request.DATA['dtable_id'], request.DATA['customergroup_id'])
+        resp = {'is_successful': is_successful}
+        return Response(resp)
+
 
 
 class CustomerGroupViewSet(viewsets.ModelViewSet):
@@ -59,10 +70,26 @@ class CustomerGroupViewSet(viewsets.ModelViewSet):
     queryset = CustomerGroup.objects.all()
     serializer_class = CustomerGroupSerializer
 
-    @detail_route()
-    def add_order_to_orderlist(self, menu_id, quantity, comment=None):
-        resp = {'isSuccessful': self.get_object().add_order_to_orderlist(menu_id, quantity, comment)}
+    @detail_route(methods=['post'])
+    def add_order_to_orderlist(self, request, pk=None):
+        comment = ''
+        if 'comment' in request.DATA:
+            comment = request.DATA['comment']
+        menu_id, quantity = request.DATA['menu_id'], request.DATA['quantity']
+        resp = {'isSuccessful': self.get_object().add_to_orderlist(menu_id, quantity, comment)}
         return Response(resp)
+
+    @detail_route()
+    def get_order_list(self, request, pk=None):
+        order_list = self.get_object().get_order_list()
+        resp = {'order_list': order_list}
+        return Response(resp)
+
+    @detail_route()
+    def checkout(self, request):
+        resp = {"a": 123}
+        return Response(resp)
+
 
 
 class ReservationViewSet(viewsets.ModelViewSet):
