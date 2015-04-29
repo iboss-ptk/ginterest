@@ -143,7 +143,7 @@ class Reservation(models.Model):
     def activate_table(table_id, customergroup_id):
         m_orderlist = Orderlist.create_new_orderlist(table_id, customergroup_id)
         m_table = DTable.objects.get(pk=table_id)
-        if m_table.status == 'u' | m_table.status == 'r':
+        if m_table.status == 'u' or m_table.status == 'r':
             return False
 
         new_sit = Sit.objects.create(
@@ -246,7 +246,8 @@ class Employee(models.Model):
     @staticmethod
     def total_income():
         income = 0
-        orderlists = Orderlist.objects.all().prefetch_related('customergroup_id').filter(exist=False)
+        leftcustomer = CustomerGroup.objects.all().filter(exist=False)
+        orderlists = Orderlist.objects.all().filter(customergroup_id=leftcustomer)
         for orderlist in orderlists:
             orders = Order.objects.all().filter(orderlist_id=orderlist)
             for order in orders:
