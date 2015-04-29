@@ -104,17 +104,13 @@ class ReservationViewSet(viewsets.ModelViewSet):
     serializer_class = ReservationSerializer
 
     @list_route()
-    def get_all_checkingout_orderlist_list(self,request):
-        orderListNow = CustomerGroup.get_all_checking_out_orderlist_list()
-        lengthOFOrderL = len(orderListNow)
-        OrderList_list = []
-        for i in lengthOFOrderL:
-                OrderList_list.add(orderListNow[i])
-        resp = {'checking_out_orderlist_list', OrderList_list}
+    def get_all_checkingout_orderlist_list(self, request):
+        order_lists = Orderlist.get_all_checking_out_orderlist_list()
+        resp = {'all_order_list': order_lists}
         return Response(resp)
 
-    def get_checkingout_orderlist(self, request, pk=None):
-        dtable_num = request.DATA['']
+    # def get_checkingout_orderlist(self, request, pk=None):
+    #     dtable_num = request.DATA['']
 
 class MenuViewSet(viewsets.ModelViewSet):
     """

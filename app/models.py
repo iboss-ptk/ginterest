@@ -94,7 +94,7 @@ class CustomerGroup(models.Model):
             order_list.append(order_obj)
         return order_list
 
-
+    @staticmethod
     def call_next_queue(old_queue_number):
         new_queue_number = old_queue_number
         last_customergroup = CustomerGroup.objects.order_by('queue_no').last()
@@ -194,7 +194,7 @@ class Orderlist(models.Model):
     @staticmethod
     def get_all_checking_out_orderlist_list():
         orderlist_list = []
-        orderlists = Orderlist.object.all().prefetch_related('dtable_id').filter(status='c')
+        orderlists = Orderlist.objects.all().prefetch_related('dtable_id').filter(status='c')
         for orderlist in orderlists:
             orderlist_list.append({
                 'dtable_id': orderlist.dtable_id.id,
