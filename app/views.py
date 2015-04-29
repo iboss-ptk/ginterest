@@ -28,10 +28,6 @@ class UserViewSet(viewsets.ModelViewSet):
         """
         data = request.DATA
         resp = User.authenticate(data['username'], data['password'])
-
-        if resp['isAuthenticated'] and self.get_object().get_table_id() is not None:
-            resp['table_id'] = self.get_object().get_table_id()
-
         return Response(resp)
 
 
