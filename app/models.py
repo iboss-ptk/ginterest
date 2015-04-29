@@ -62,13 +62,6 @@ class CustomerGroup(models.Model):
     def __str__(self):
         return str(self.enter_time)+' ('+str(self.number_of_customer)+')'
 
-    def total_price(self):
-        price = 0
-        orders = Order.objects.all().filter(orderlist_id=self)
-        for order in orders:
-            price += order.menu_id.price
-        return price
-
     def add_to_orderlist(self, menuId, quantity, comment):
         mOrderlist = Orderlist.objects.get(customergroup_id=self)
         new_order = Order.objects.create(
@@ -105,29 +98,6 @@ class CustomerGroup(models.Model):
         m_table.save()
 
         return
-
-    @staticmethod
-    def get_all_checking_out_orderlist_list():
-        orderlist_list = []
-        orderlists = Orderlist.object.all().prefetch_related('dtable_id').filter(status='c')
-        for orderlist in orderlists:
-            orderlist_list.append({
-                'dtable_id': orderlist.dtable_id.id,
-                'total_price': orderlist.total_price()
-            })
-        return orderlist_list
-
-    @staticmethod
-    def get_checkingout_orderlist(dtable_id):
-        order_list = []
-        orders = Order.objects.all().prefetch_related('orderlist_id').filter(dtable_id=dtable_id)
-        for order in orders:
-            order_list.append({
-                'menu_name': order.menu_id.name,
-                'quantity': order.quantity,
-                'price': order.menu_id.price
-            })
-        return order_list
 
 
 class Reservation(models.Model):
@@ -178,6 +148,13 @@ class Orderlist(models.Model):
     def __str__(self):
         return str(self.dtable_id)
 
+    def total_price(self):
+        price = 0
+        orders = Order.objects.all().filter(orderlist_id=self)
+        for order in orders:
+            price += order.menu_id.price
+        return price
+
     @staticmethod
     def create_new_orderlist(table_id, customergroup_id):
         new_orderlist = Orderlist.objects.create(
@@ -185,12 +162,29 @@ class Orderlist(models.Model):
             customergroup_id=CustomerGroup.objects.get(pk=customergroup_id))
         new_orderlist.save()
         return new_orderlist
-    # TODO
-    # @staticmethod
-    # def get_all_table_orderlist(self):
-    #     orderlist_list = []
-    #     dtables = DTable.objects.
-    #     return orderlist_list
+
+    @staticmethod
+    def get_all_checking_out_orderlist_list():
+        orderlist_list = []
+        orderlists = Orderlist.object.all().prefetch_related('dtable_id').filter(status='c')
+        for orderlist in orderlists:
+            orderlist_list.append({
+                'dtable_id': orderlist.dtable_id.id,
+                'total_price': orderlist.total_price()
+            })
+        return orderlist_list
+
+    @staticmethod
+    def get_checkingout_orderlist(dtable_id):
+        order_list = []
+        orders = Order.objects.all().prefetch_related('orderlist_id').filter(dtable_id=dtable_id)
+        for order in orders:
+            order_list.append({
+                'menu_name': order.menu_id.name,
+                'quantity': order.quantity,
+                'price': order.menu_id.price
+            })
+        return order_list
 
 
 class Employee(models.Model):
