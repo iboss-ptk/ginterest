@@ -29,11 +29,9 @@ class UserViewSet(viewsets.ModelViewSet):
         data = request.DATA
         resp = User.authenticate(data['username'], data['password'])
 
-        # if resp['isAuthenticated']:
-            # TODO: need get_table_id. none if not table
-            # if User.objects.get(pk=resp.id) =
-            # request.session['username'] = resp.user
-            # request.session['role_id'] = resp.role_id
+        if resp['isAuthenticated'] and self.get_object().get_table_id() is not None:
+            resp['table_id'] = self.get_object().get_table_id()
+
         return Response(resp)
 
 
@@ -57,9 +55,16 @@ class DTableViewSet(viewsets.ModelViewSet):
 
     @list_route(methods=['post'])
     def activate_table(self, request):
-        is_successful = DTable.activate_table(request.DATA['dtable_id'], request.DATA['customergroup_id'])
+        is_successful = Reservation.activate_table(request.DATA['dtable_id'], request.DATA['customergroup_id'])
         resp = {'is_successful': is_successful}
         return Response(resp)
+
+    @list_route()
+    def is_table_vacant(self, request):
+        resp = {"is_vacant": User.is_table_vacant(request.session['table_id'])}
+        return Response(resp)
+
+
 
 
 
