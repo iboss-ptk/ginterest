@@ -45,7 +45,21 @@ function init(){
 				table_id = result.table_id;
 				if(result.isAuthenticated){
 					switch(result.role_id){
-						case 1: mainView.router.loadPage('static/f7/html/table/wait.html'); break;
+						case 1: 
+						 $$.ajax({
+							url: 'api/dtable/'+table_id+'/wait_for_activation/', 
+							method: 'get',
+							success: function(result){
+								//console.log(table_id);
+								result = JSON.parse(result);
+								if(result.status=='o'){
+									mainView.router.loadPage('static/f7/html/table/main.html');
+									clearInterval(intervalID);
+								}
+								else mainView.router.loadPage('static/f7/html/table/wait.html');
+							}
+						});
+						break;
 						case 2: mainView.router.loadPage('static/f7/html/table/wait.html'); break;
 						case 3: mainView.router.loadPage('static/f7/html/table/wait.html'); break;
 						default: myApp.alert('Role id error');
