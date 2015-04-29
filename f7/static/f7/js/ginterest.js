@@ -1,5 +1,7 @@
 // Initialize your app
-var myApp = new Framework7();
+var myApp = new Framework7({
+	modalTitle: '',
+});
 
 // Export selectors engine
 var $$ = Dom7;
@@ -12,24 +14,41 @@ var mainView = myApp.addView('.view-main', {
 
 
 function init(){
-	console.log('init');
     // run createContentPage func after link was clicked
 
     $$('#login-table').on('click', function () {
 		var data = {
-		"username": $$('#username').val(),
-		"password": $$('#password').val()
-	};
-		//console.log(data);
-        $$.post('api/user/login/', data, function(result){
-			result = JSON.parse(result);
-			console.log(result.isAuthenticated);
+			"username": $$('#username').val(),
+			"password": $$('#password').val()
+		};
+		myApp.showPreloader('Logging in...')
+        $$.ajax({
+			url: 'api/user/login/', 
+			method: 'post',
+			data: data,
+			success: function(result){
+				//console.log(result);
+				myApp.hidePreloader();
+				result = JSON.parse(result);
+				if(result.isAuthenticated){
+					mainView.router.loadPage('static/f7/html/table/wait.html');
+				}else{
+					 myApp.alert('Incorrect<br>username or password');
+				}	
+			},
+			error: function(result){
+				//console.log(result.statusText);
+				myApp.hidePreloader();
+				myApp.alert(result.statusText);
+			}
 		})
     });
 }
 
+init();
+
 // Callbacks to run specific code for specific pages
-myApp.onPageInit('login-screen-embedded', init());
+myApp.onPageInit('login-screen-embedded', function(page){});
 
 // Generate dynamic page
 var dynamicPageIndex = 0;
