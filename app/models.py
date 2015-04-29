@@ -57,6 +57,7 @@ class CustomerGroup(models.Model):
     queue_no = models.IntegerField(default=0)
     enter_time = models.DateTimeField(auto_now_add=True)
     exit_time = models.DateTimeField(auto_now_add=True)
+    exist = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.enter_time)+' ('+str(self.number_of_customer)+')'
@@ -207,6 +208,11 @@ class Employee(models.Model):
     def fire(self):
         self.role = 'f'
         return 'FIRED!'
+
+    @staticmethod
+    def total_income():
+
+        return
 
 
 class Order(models.Model):

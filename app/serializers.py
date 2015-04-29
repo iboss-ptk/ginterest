@@ -18,13 +18,13 @@ class UserSerializer(serializers.ModelSerializer):
 class DTableSerializer(serializers.ModelSerializer):
     class Meta:
         model = DTable
-        fields = ('id', 'status', 'description', 'capacity', 'main_table')
+        fields = ('id', 'status', 'description', 'capacity', 'main_table', 'user_id')
 
 
 class CustomerGroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomerGroup
-        fields = ('id', 'number_of_customer', 'queue_no', 'enter_time', 'exit_time')
+        fields = ('id', 'number_of_customer', 'queue_no', 'enter_time', 'exit_time','exist')
 
 
 class ReservationSerializer(serializers.ModelSerializer):
