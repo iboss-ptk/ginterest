@@ -21,6 +21,8 @@ def run():
     print(c1.get_order_list())
     print('hi')
     print(ol1.total_price())
+
+    print(CustomerGroup.initiate_queue())
     # test authenticate
     # print(User.authenticate('janin', 'jap')) #correct username, password
     # print(User.authenticate('janin', 'kuy')) #wrong password

@@ -94,6 +94,7 @@ class CustomerGroup(models.Model):
             order_list.append(order_obj)
         return order_list
 
+
     def call_next_queue(old_queue_number):
         new_queue_number = old_queue_number
         last_customergroup = CustomerGroup.objects.order_by('queue_no').last()
@@ -120,6 +121,10 @@ class CustomerGroup(models.Model):
         m_table.save()
 
         return
+
+    @staticmethod
+    def initiate_queue():
+        return CustomerGroup.objects.all().last().id
 
 
 class Reservation(models.Model):
@@ -199,7 +204,8 @@ class Orderlist(models.Model):
     @staticmethod
     def get_checkingout_orderlist(dtable_id):
         order_list = []
-        orders = Order.objects.all().prefetch_related('orderlist_id').filter(dtable_id=dtable_id)
+        orderlist = Orderlist.objects.all().get(dtable_id=dtable_id).last()
+        orders = Order.objects.all().filter(orderlist_id=orderlist)
         for order in orders:
             order_list.append({
                 'menu_name': order.menu_id.name,
@@ -239,9 +245,13 @@ class Employee(models.Model):
 
     @staticmethod
     def total_income():
+        income = 0
         orderlists = Orderlist.objects.all().prefetch_related('customergroup_id').filter(exist=False)
-        #TODO
-        return
+        for orderlist in orderlists:
+            orders = Order.objects.all().filter(orderlist_id=orderlist)
+            for order in orders:
+                income += order.menu_id.price
+        return income
 
 
 class Order(models.Model):
@@ -284,6 +294,18 @@ class Order(models.Model):
         m_order.status = 's'
         m_order.save()
         return True
+
+    @staticmethod
+    def all_order_list():
+        return_list = []
+        m_all_order = Order.objects.prefetch_related('menu_id').all()
+        for order in m_all_order:
+            return_list.append({
+                'menu_name': order.menu_id.name,
+                'table_id': order.orderlist_id.dtable_id,
+                'ordertime': order.order_time,
+                'price': order.price
+            })
 
 
 class Salaried(models.Model):
