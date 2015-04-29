@@ -2,7 +2,7 @@ var queue=0;
 // Initialize your app
 var myApp = new Framework7({
 	modalTitle: '',
-	swipePanel: 'right'
+	swipePanel: 'right',
 	template7Pages: true,
 	template7Data: {
         // This context will applied for page/template with "about.html" URL
