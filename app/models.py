@@ -317,7 +317,6 @@ class Sit(models.Model):
         return m_sit.table_id
 
 
-
 class Invoice(models.Model):
     INVOICE_STATUSES = (
         ('p', 'Pending'),
