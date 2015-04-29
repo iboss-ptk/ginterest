@@ -19,12 +19,12 @@ router.register(r'salaried', views.SalariedViewSet)
 router.register(r'hourly', views.HourlyViewSet)
 router.register(r'worktime', views.WorktimeViewSet)
 router.register(r'ingredient', views.IngredientViewSet)
-router.register(r'supplier', views.SupplierViewSet)
-router.register(r'invoice', views.InvoiceViewSet)
+# router.register(r'supplier', views.SupplierViewSet)
+# router.register(r'invoice', views.InvoiceViewSet)
 router.register(r'recipe', views.RecipeViewSet)
 router.register(r'sit', views.SitViewSet)
-router.register(r'invoice', views.InvoiceViewSet)
-router.register(r'ininvoice', views.InInvoiceViewSet)
+# router.register(r'invoice', views.InvoiceViewSet)
+# router.register(r'ininvoice', views.InInvoiceViewSet)
 
 urlpatterns = [
     # Examples:

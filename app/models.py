@@ -34,6 +34,12 @@ class User(models.Model):
         else:
             return None
 
+    @staticmethod
+    def is_table_vacant(table_id):
+        table = DTable.objects.get(pk=table_id)
+        if table.status == 'o':
+            return True
+        return False
 
 class DTable(models.Model):
     TABLE_STATUSES = (
@@ -57,6 +63,7 @@ class CustomerGroup(models.Model):
     queue_no = models.IntegerField(default=0)
     enter_time = models.DateTimeField(auto_now_add=True)
     exit_time = models.DateTimeField(auto_now_add=True)
+    exist = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.enter_time)+' ('+str(self.number_of_customer)+')'
@@ -86,13 +93,23 @@ class CustomerGroup(models.Model):
             order_list.append(order_obj)
         return order_list
 
-    
-
     @staticmethod
-    def get_checkingout_orderlist():
+    def checkedout(customergroup_id):
+        m_customergroup = CustomerGroup.objects.get(pk=customergroup_id)
+        m_customergroup.exit_time = datetime.dateime.now().time()
+        m_customergroup.save()
+
+        m_table = Sit.get_table_of_customergroup(customergroup_id)
+        m_table.status = 'o'
+        m_table.save()
+
         return
 
-    #TODO change exitTIme to datetime.dateime.now().time() when checkout
+
+    # @staticmethod
+    # def get_checkingout_orderlist():
+    #     return
+
 
 
 class Reservation(models.Model):
@@ -143,6 +160,13 @@ class Orderlist(models.Model):
     def __str__(self):
         return str(self.dtable_id)
 
+    def total_price(self):
+        price = 0
+        orders = Order.objects.all().filter(orderlist_id=self)
+        for order in orders:
+            price += order.menu_id.price
+        return price
+
     @staticmethod
     def create_new_orderlist(table_id, customergroup_id):
         new_orderlist = Orderlist.objects.create(
@@ -156,6 +180,29 @@ class Orderlist(models.Model):
     #     orderlist_list = []
     #     dtables = DTable.objects.
     #     return orderlist_list
+
+    @staticmethod
+    def get_all_checking_out_orderlist_list():
+        orderlist_list = []
+        orderlists = Orderlist.object.all().prefetch_related('dtable_id').filter(status='c')
+        for orderlist in orderlists:
+            orderlist_list.append({
+                'dtable_id': orderlist.dtable_id.id,
+                'total_price': orderlist.total_price()
+            })
+        return orderlist_list
+
+    @staticmethod
+    def get_checkingout_orderlist(dtable_id):
+        order_list = []
+        orders = Order.objects.all().prefetch_related('orderlist_id').filter(dtable_id=dtable_id)
+        for order in orders:
+            order_list.append({
+                'menu_name': order.menu_id.name,
+                'quantity': order.quantity,
+                'price': order.menu_id.price
+            })
+        return order_list
 
 
 class Employee(models.Model):
@@ -185,6 +232,12 @@ class Employee(models.Model):
     def fire(self):
         self.role = 'f'
         return 'FIRED!'
+
+    @staticmethod
+    def total_income():
+        orderlists = Orderlist.objects.all().prefetch_related('customergroup_id').filter(exist=False)
+        #TODO
+        return
 
 
 class Order(models.Model):
@@ -296,8 +349,16 @@ class Sit(models.Model):
 
     @staticmethod
     def get_sitting_customergroup(table_id):
-        m_sit = Sit.objects.filter(table_id=table_id).last()
+        m_sit = Sit.objects.filter(
+            table_id=DTable.objects.get(pk=table_id)).last()
         return m_sit.customer_id
+
+    @staticmethod
+    def get_table_of_customergroup(customergroup_id):
+        m_sit = Sit.objects.filter(
+            customer_id=CustomerGroup.objects.get(pk=customergroup_id)).last()
+        return m_sit.table_id
+
 
 class Invoice(models.Model):
     INVOICE_STATUSES = (

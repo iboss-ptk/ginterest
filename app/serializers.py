@@ -18,13 +18,13 @@ class UserSerializer(serializers.ModelSerializer):
 class DTableSerializer(serializers.ModelSerializer):
     class Meta:
         model = DTable
-        fields = ('id', 'status', 'description', 'capacity', 'main_table')
+        fields = ('id', 'status', 'description', 'capacity', 'main_table', 'user_id')
 
 
 class CustomerGroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomerGroup
-        fields = ('id', 'number_of_customer', 'queue_no', 'enter_time', 'exit_time')
+        fields = ('id', 'number_of_customer', 'queue_no', 'enter_time', 'exit_time','exist')
 
 
 class ReservationSerializer(serializers.ModelSerializer):
@@ -82,16 +82,16 @@ class IngredientSerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
 
 
-class SupplierSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Supplier
-        fields = ('id', 'name')
+# class SupplierSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Supplier
+#         fields = ('id', 'name')
 
 
-class InvoiceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Invoice
-        fields = ('id', 'invoice_status', 'date', 'supplier_id', 'status')
+# class InvoiceSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Invoice
+#         fields = ('id', 'invoice_status', 'date', 'supplier_id', 'status')
 
 
 class RecipeSerializer(serializers.ModelSerializer):
@@ -106,7 +106,7 @@ class SitSerializer(serializers.ModelSerializer):
         fields = ('id', 'table_id', 'customer_id')
 
 
-class InInvoiceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = InInvoice
-        fields = ('id', 'ingredient_id', 'invoice_id', 'quantity_bought', 'price')
+# class InInvoiceSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = InInvoice
+#         fields = ('id', 'ingredient_id', 'invoice_id', 'quantity_bought', 'price')

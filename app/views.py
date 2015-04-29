@@ -2,6 +2,7 @@ from rest_framework.decorators import detail_route, list_route
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework import viewsets
+from app.models import *
 from app.serializers import *
 
 
@@ -27,9 +28,12 @@ class UserViewSet(viewsets.ModelViewSet):
         """
         data = request.DATA
         resp = User.authenticate(data['username'], data['password'])
-        if resp['isAuthenticated']:
-            request.session['user_id'] = resp.id
-            request.session['role_id'] = resp.role_id
+
+        # if resp['isAuthenticated']:
+            # TODO: need get_table_id. none if not table
+            # if User.objects.get(pk=resp.id) =
+            # request.session['username'] = resp.user
+            # request.session['role_id'] = resp.role_id
         return Response(resp)
 
 
@@ -41,15 +45,22 @@ class DTableViewSet(viewsets.ModelViewSet):
     serializer_class = DTableSerializer
 
     @detail_route()
-    def wait_for_activation(self):
+    def wait_for_activation(self, request, pk=None):
         resp = {'status': self.get_object().status}
         return Response(resp)
 
-    @detail_route()
-    def get_all_menu(self):
-        # TODO: wait for Ong's dtable get all menu
-        resp = None
+    @list_route()
+    def get_all_menu(self, request):
+        menu_list = Menu.get_all_menu()
+        resp = {'menu_list': menu_list}
         return Response(resp)
+
+    @list_route(methods=['post'])
+    def activate_table(self, request):
+        is_successful = DTable.activate_table(request.DATA['dtable_id'], request.DATA['customergroup_id'])
+        resp = {'is_successful': is_successful}
+        return Response(resp)
+
 
 
 class CustomerGroupViewSet(viewsets.ModelViewSet):
@@ -59,10 +70,29 @@ class CustomerGroupViewSet(viewsets.ModelViewSet):
     queryset = CustomerGroup.objects.all()
     serializer_class = CustomerGroupSerializer
 
-    @detail_route()
-    def add_order_to_orderlist(self, menu_id, quantity, comment=None):
-        resp = {'isSuccessful': self.get_object().add_order_to_orderlist(menu_id, quantity, comment)}
+    @detail_route(methods=['post'])
+    def add_order_to_orderlist(self, request, pk=None):
+        comment = ''
+        if 'comment' in request.DATA:
+            comment = request.DATA['comment']
+        menu_id, quantity = request.DATA['menu_id'], request.DATA['quantity']
+        resp = {'isSuccessful': self.get_object().add_to_orderlist(menu_id, quantity, comment)}
         return Response(resp)
+
+    @detail_route()
+    def get_order_list(self, request, pk=None):
+        order_list = self.get_object().get_order_list()
+        resp = {'order_list': order_list}
+        return Response(resp)
+
+    @detail_route()
+    def checkout(self, request):
+        resp = {"a": 123}
+        return Response(resp)
+
+
+
+
 
 
 class ReservationViewSet(viewsets.ModelViewSet):
@@ -72,6 +102,18 @@ class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
 
+    @list_route()
+    def get_all_checkingout_orderlist_list(self,request):
+        orderListNow = CustomerGroup.get_all_checking_out_orderlist_list()
+        lengthOFOrderL = len(orderListNow)
+        OrderList_list = []
+        for i in lengthOFOrderL:
+                OrderList_list.add(orderListNow[i])
+        resp = {'checking_out_orderlist_list', OrderList_list}
+        return Response(resp)
+
+    def get_checkingout_orderlist(self, request, pk=None):
+        dtable_num = request.DATA['']
 
 class MenuViewSet(viewsets.ModelViewSet):
     """
@@ -137,12 +179,12 @@ class IngredientViewSet (viewsets.ModelViewSet):
     serializer_class = IngredientSerializer
 
 
-class SupplierViewSet (viewsets.ModelViewSet):
-    """
-    API endpoint that allows Supplier to be viewed or edited.
-    """
-    queryset = Supplier.objects.all()
-    serializer_class = SupplierSerializer
+# class SupplierViewSet (viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows Supplier to be viewed or edited.
+#     """
+#     queryset = Supplier.objects.all()
+#     serializer_class = SupplierSerializer
 
 
 class RecipeViewSet (viewsets.ModelViewSet):
@@ -161,17 +203,17 @@ class SitViewSet (viewsets.ModelViewSet):
     serializer_class = SitSerializer
 
 
-class InvoiceViewSet (viewsets.ModelViewSet):
-    """
-    API endpoint that allows Invoice to be viewed or edited.
-    """
-    queryset = Invoice.objects.all()
-    serializer_class = InvoiceSerializer
+# class InvoiceViewSet (viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows Invoice to be viewed or edited.
+#     """
+#     queryset = Invoice.objects.all()
+#     serializer_class = InvoiceSerializer
 
 
-class InInvoiceViewSet (viewsets.ModelViewSet):
-    """
-    API endpoint that allows InInvoice to be viewed or edited.
-    """
-    queryset = InInvoice.objects.all()
-    serializer_class = InInvoiceSerializer
+# class InInvoiceViewSet (viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows InInvoice to be viewed or edited.
+#     """
+#     queryset = InInvoice.objects.all()
+#     serializer_class = InInvoiceSerializer
