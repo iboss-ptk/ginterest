@@ -63,9 +63,6 @@ class DTableViewSet(viewsets.ModelViewSet):
         return Response(resp)
 
 
-
-
-
 class CustomerGroupViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows CustomerGroup to be viewed or edited.
@@ -92,10 +89,6 @@ class CustomerGroupViewSet(viewsets.ModelViewSet):
     def checkout(self, request):
         resp = {"a": 123}
         return Response(resp)
-
-
-
-
 
 
 class ReservationViewSet(viewsets.ModelViewSet):

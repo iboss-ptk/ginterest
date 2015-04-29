@@ -147,8 +147,8 @@ class Reservation(models.Model):
             return False
 
         new_sit = Sit.objects.create(
-            DTable.objects.get(pk=table_id),
-            CustomerGroup.objects.get(pk=customergroup_id))
+            table_id=DTable.objects.get(pk=table_id),
+            customer_id=CustomerGroup.objects.get(pk=customergroup_id))
         m_table.status = 'u'
 
         m_table.save()
@@ -186,7 +186,8 @@ class Orderlist(models.Model):
     def create_new_orderlist(table_id, customergroup_id):
         new_orderlist = Orderlist.objects.create(
             dtable_id=DTable.objects.get(pk=table_id),
-            customergroup_id=CustomerGroup.objects.get(pk=customergroup_id))
+            customergroup_id=CustomerGroup.objects.get(pk=customergroup_id)
+        )
         new_orderlist.save()
         return new_orderlist
 
