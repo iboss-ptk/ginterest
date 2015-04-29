@@ -79,7 +79,7 @@ class CustomerGroup(models.Model):
         return True
 
     def get_orderlist(self):
-        return Orderlist.objects.get(customergroup_id=self)
+        return Orderlist.objects.filter(customergroup_id=self)[0]
 
     def get_order_list(self):
         order_list = []
