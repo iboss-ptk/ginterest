@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9942394c-953b-4b87-94e8-c31c60222e6f" name="Default" comment="Merge branch 'master' of github.com:iboss-ptk/ginterest&#10;&#10;Conflicts:&#10;&#9;app/__pycache__/views.cpython-34.pyc&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models.py" afterPath="$PROJECT_DIR$/app/models.py" />
+    <list default="true" id="9942394c-953b-4b87-94e8-c31c60222e6f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ginterest.iws" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7608286" vertical-offset="916" max-vertical-offset="6330">
-              <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.7740113" vertical-offset="5799" max-vertical-offset="6330">
+              <caret line="415" column="22" selection-start-line="415" selection-start-column="22" selection-end-line="415" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -40,8 +39,18 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.62963" vertical-offset="871" max-vertical-offset="3255">
-              <caret line="84" column="41" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+            <state vertical-scroll-proportion="-10.962963" vertical-offset="994" max-vertical-offset="3255">
+              <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkout.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/f7/static/f7/html/checkout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-27.666666" vertical-offset="176" max-vertical-offset="930">
+              <caret line="56" column="6" selection-start-line="52" selection-start-column="8" selection-end-line="56" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -192,7 +201,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="full.screen.before.presentation.mode" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="get_or&#9;null&#9;null&#10;get_o&#9;null&#9;null&#10;acti&#9;null&#9;null&#10;get_all_checking_out_orderlist_list&#9;null&#9;null&#10;git&#9;FILE&#9;file:///Users/macbookair/PycharmProjects/ginterest/.gitignore" />
+    <property name="SearchEverywhereHistoryKey" value="Sit&#9;null&#9;null&#10;checkout&#9;null&#9;null&#10;chec&#9;FILE&#9;file:///Users/macbookair/PycharmProjects/ginterest/f7/static/f7/html/checkout.html&#10;get_or&#9;null&#9;null&#10;get_o&#9;null&#9;null&#10;acti&#9;null&#9;null&#10;get_all_checking_out_orderlist_list&#9;null&#9;null&#10;git&#9;FILE&#9;file:///Users/macbookair/PycharmProjects/ginterest/.gitignore" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -430,7 +439,13 @@
       <option name="project" value="LOCAL" />
       <updated>1430344194460</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="final get_order_list and get_orderlist_list and get_orderlsit ???">
+      <created>1430346677908</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1430346677908</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -525,7 +540,8 @@
     <MESSAGE value="call next queue" />
     <MESSAGE value="add order to orderlist" />
     <MESSAGE value="Merge branch 'master' of github.com:iboss-ptk/ginterest&#10;&#10;Conflicts:&#10;&#9;app/__pycache__/views.cpython-34.pyc&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of github.com:iboss-ptk/ginterest&#10;&#10;Conflicts:&#10;&#9;app/__pycache__/views.cpython-34.pyc&#10;" />
+    <MESSAGE value="final get_order_list and get_orderlist_list and get_orderlsit ???" />
+    <option name="LAST_COMMIT_MESSAGE" value="final get_order_list and get_orderlist_list and get_orderlsit ???" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -831,16 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/f7/static/f7/html/checkout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88063663" vertical-offset="176" max-vertical-offset="930">
-          <caret line="56" column="6" selection-start-line="52" selection-start-column="8" selection-end-line="56" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/f7/static/f7/html/income.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2785146" vertical-offset="0" max-vertical-offset="754">
@@ -891,18 +897,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/f7/static/f7/html/checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.666666" vertical-offset="176" max-vertical-offset="930">
+          <caret line="56" column="6" selection-start-line="52" selection-start-column="8" selection-end-line="56" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.62963" vertical-offset="871" max-vertical-offset="3255">
-          <caret line="84" column="41" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="41" />
+        <state vertical-scroll-proportion="-10.962963" vertical-offset="994" max-vertical-offset="3255">
+          <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7608286" vertical-offset="916" max-vertical-offset="6330">
-          <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.7740113" vertical-offset="5799" max-vertical-offset="6330">
+          <caret line="415" column="22" selection-start-line="415" selection-start-column="22" selection-end-line="415" selection-end-column="22" />
           <folding />
         </state>
       </provider>
