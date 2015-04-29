@@ -21,6 +21,9 @@ def run():
     print(c1.get_order_list())
     print('hi')
     print(ol1.total_price())
+
+    print('test today')
+    print(Employee.total_income())
     # test authenticate
     # print(User.authenticate('janin', 'jap')) #correct username, password
     # print(User.authenticate('janin', 'kuy')) #wrong password

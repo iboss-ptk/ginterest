@@ -241,7 +241,8 @@ class Employee(models.Model):
     @staticmethod
     def total_income():
         income = 0
-        orderlists = Orderlist.objects.all().prefetch_related('customergroup_id').filter(exist=False)
+        leftcustomer = CustomerGroup.objects.all().filter(exist=False)
+        orderlists = Orderlist.objects.all().filter(customergroup_id=leftcustomer)
         for orderlist in orderlists:
             orders = Order.objects.all().filter(orderlist_id=orderlist)
             for order in orders:
