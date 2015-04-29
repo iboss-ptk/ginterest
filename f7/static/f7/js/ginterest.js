@@ -45,7 +45,6 @@ function init(){
 								result = JSON.parse(result);
 								if(result.status=='o'){
 									mainView.router.loadPage('static/f7/html/table/main.html');
-									clearInterval(intervalID);
 								}
 								else mainView.router.loadPage('static/f7/html/table/wait.html');
 							}
