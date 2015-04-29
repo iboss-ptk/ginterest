@@ -1,0 +1,19 @@
+
+		{{#each menu}}
+		<div class="col-50">
+			 <div class="card">
+				<div class="card-header">{{menu-name}}</div>
+					<div class="card-content"> 
+					  <div class="row">
+						<div class="col-33">
+							<img src="{{menu-pic}}" alt="Menu">
+						</div>
+							<div class="col-66">
+								<div class="card-content-inner">{{menu-desc}}</div>
+							</div>
+						</div>
+					</div>
+				<div class="card-footer">{{menu-price}}</div>
+			 </div>
+		</div>
+		{{/each}}
