@@ -13,6 +13,7 @@ var myApp = new Framework7({
 });
 
 var table_id;
+var orderList = [];
 // Export selectors engine
 var $$ = Dom7;
 
