@@ -92,6 +92,9 @@ class CustomerGroupViewSet(viewsets.ModelViewSet):
 
 
 
+
+
+
 class ReservationViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Reservation to be viewed or edited.
@@ -99,6 +102,18 @@ class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
 
+    @list_route()
+    def get_all_checkingout_orderlist_list(self,request):
+        orderListNow = CustomerGroup.get_all_checking_out_orderlist_list()
+        lengthOFOrderL = len(orderListNow)
+        OrderList_list = []
+        for i in lengthOFOrderL:
+                OrderList_list.add(orderListNow[i])
+        resp = {'checking_out_orderlist_list', OrderList_list}
+        return Response(resp)
+
+    def get_checkingout_orderlist(self, request, pk=None):
+        dtable_num = request.DATA['']
 
 class MenuViewSet(viewsets.ModelViewSet):
     """

@@ -82,12 +82,12 @@ def run():
 
 
     # Menu,
-    m1 = Menu(name='janin',description='jap')
-    m2 = Menu(name='boonjira',description='aor')
-    m3 = Menu(name='ssobi',description='iboss')
-    m4 = Menu(name='selseo',description='oesles')
-    m5 = Menu(name='jirat',description='earth')
-    m6 = Menu(name='pannat',description='tannap')
+    m1 = Menu(name='janin',description='jap',pic_path='emp_pic/1.jpg')
+    m2 = Menu(name='boonjira',description='aor',pic_path='emp_pic/1.jpg')
+    m3 = Menu(name='ssobi',description='iboss',pic_path='emp_pic/1.jpg')
+    m4 = Menu(name='selseo',description='oesles',pic_path='emp_pic/1.jpg')
+    m5 = Menu(name='jirat',description='earth',pic_path='emp_pic/1.jpg')
+    m6 = Menu(name='pannat',description='tannap',pic_path='emp_pic/1.jpg')
     m1.save()
     m2.save()
     m3.save()
