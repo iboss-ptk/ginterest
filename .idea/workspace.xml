@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9942394c-953b-4b87-94e8-c31c60222e6f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models.py" afterPath="$PROJECT_DIR$/app/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="9942394c-953b-4b87-94e8-c31c60222e6f" name="Default" comment="" />
     <ignored path="ginterest.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -588,7 +585,13 @@
       <option name="project" value="LOCAL" />
       <updated>1430341961463</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add order to orderlist">
+      <created>1430343500127</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1430343500127</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -681,7 +684,8 @@
     <MESSAGE value="(push attempt 2) add method authenticate(username: String, password: String)" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;app/__pycache__/views.cpython-34.pyc&#10;" />
     <MESSAGE value="call next queue" />
-    <option name="LAST_COMMIT_MESSAGE" value="call next queue" />
+    <MESSAGE value="add order to orderlist" />
+    <option name="LAST_COMMIT_MESSAGE" value="add order to orderlist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
