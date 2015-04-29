@@ -1,7 +1,15 @@
+var queue=0;
 // Initialize your app
 var myApp = new Framework7({
 	modalTitle: '',
-	swipePanel: 'right'
+	swipePanel: 'right',
+	template7Pages: true,
+	template7Data: {
+        // This context will applied for page/template with "about.html" URL
+        'page:reception-main': {
+            number:queue
+        }
+}
 });
 
 var table_id;
@@ -18,6 +26,7 @@ var mainView = myApp.addView('.view-main', {
 
 function init(){
     // run createContentPage func after link was clicked
+
 
     $$('#login-button').on('click', function () {
 		var data = {
@@ -83,6 +92,9 @@ function init(){
 }
 
 init();
+
+// Callbacks to run specific code for specific pages
+myApp.onPageInit('login-screen-embedded', function(page){});
 
 // Generate dynamic page
 var dynamicPageIndex = 0;
