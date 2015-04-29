@@ -93,7 +93,8 @@ class CustomerGroupViewSet(viewsets.ModelViewSet):
 
     @list_route(methods=['post'])
     def call_next_queue(self, request):
-        return Response({'next_queue': request.DATA['current_queue']+1})
+        next_queue = request.DATA['current_queue']+1
+        return Response({'next_queue': next_queue})
 
 class ReservationViewSet(viewsets.ModelViewSet):
     """
