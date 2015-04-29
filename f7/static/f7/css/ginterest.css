@@ -232,8 +232,15 @@ li{
 .swiper-slide {
   background:#fff;
 }
-.swiper-slide span {
+.swiper-slide {
   text-align:center;
   display:block;
   margin:20px;
+}
+
+.div-content{
+    text-align:center;
+    display:block;
+    overflow:auto;
+    height:50vh;
 }

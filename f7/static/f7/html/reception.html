@@ -10,14 +10,16 @@
     <div class="page-content red-bg-content">
       <div class="content-block-title color-white">Current Queue</div>
       <div class="content-block">
-        <div class="content-block-inner red-bg-content">
-            <div class="card">
-                <p style="text-align:center;font-size:4em;">12345</p>
+        <div class="content-block-inner red-bg-content row max-width">
+            <div class="col-33"></div>
+            <div class="card col-33">
+                <p class="next-queue" style="text-align:center;font-size:4em;">{{number}}</p>
             </div>
-            <a class="button white-bg-content color-red"> Next Queue </a>
-            <a class="button demo-prompt white-bg-content color-red" href="#"> Activated Queue </a>
-            <div class="color-white"><a data-popup=".getqueue-popup " class="button open-popup white-bg-content color-red"> <img src="static/f7/img/favicon.png"> </a>Get Queue</div>
-            <div class="color-white"><a data-popup=".reserved-popup" class="button open-popup white-bg-content color-red"> <img src="static/f7/img/favicon.png"> </a>Reserved</div>
+            <div class="col-33"></div>
+            <a class="button white-bg-content color-red col-50 next-queue" > Next Queue </a>
+            <a class="button demo-prompt white-bg-content color-red col-50" href="#"> Activated Queue </a>
+            <div class="color-white col-50"><a data-popup=".getqueue-popup " class="button open-popup white-bg-content color-red"> <img src="static/f7/img/favicon.png"> </a>Get Queue</div>
+            <div class="color-white col-50"><a data-popup=".reserved-popup" class="button open-popup white-bg-content color-red"> <img src="static/f7/img/favicon.png"> </a>Reserved</div>
             <a  href="static/f7/html/checkout.html" class="item-link button white-bg-content color-red "> Check Out </a>
         </div>
       </div>

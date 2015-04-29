@@ -1,6 +1,14 @@
+var queue=0;
 // Initialize your app
 var myApp = new Framework7({
 	modalTitle: '',
+	template7Pages: true,
+	template7Data: {
+        // This context will applied for page/template with "about.html" URL
+        'page:reception-main': {
+            number:queue
+        }
+}
 });
 
 // Export selectors engine
@@ -15,6 +23,7 @@ var mainView = myApp.addView('.view-main', {
 
 function init(){
     // run createContentPage func after link was clicked
+
 
     $$('#login-table').on('click', function () {
 		var data = {
