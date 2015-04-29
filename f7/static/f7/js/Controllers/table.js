@@ -1,5 +1,5 @@
 var intervalID;
-var orderList;
+
 
 myApp.onPageInit('table-wait', function(page){
 	//console.log('run');
@@ -18,6 +18,8 @@ myApp.onPageInit('table-wait', function(page){
 		})
 	},500);
 });
+
+
 myApp.onPageInit('place-order', function(page){
 		$$.ajax({
 			url: 'api/menu/', 
@@ -51,21 +53,25 @@ myApp.onPageInit('place-order', function(page){
 							 '</div>'+
 						'</div>'
 					);
-					
 				
-						$$('#menu'+menuId).on('click', function () {
-							$$('#place-order-col ul').append(
+					$$('#menu'+menuId).on('click', function () {
+						var index = this.id.substr(4,1);
+						index--;
+						$$('.place-order-col ul').append(
 								'<li>'+
 								'<div class="item-content">'+
 								  '<div class="item-inner"> '+
-									'<div class="item-title">'+menuName+'</div>'+
-									'<div class="item-after">'+menuPrice+' Baht</div>'+
+									'<div class="item-title">'+menu[index].name+'</div>'+
+									'<div class="item-after">'+menu[index].price+'</div>'+
 								  '</div>'+
 								'</div>'+
 								'</li>'
-							);
-							orderList.push(menu[i]);
-						});
+						);
+						var total = parseInt($$('#menu-total').text());
+						$$('#menu-total').text(total+menu[index].price);
+						orderList.push(menu[index]);
+						console.log(orderList);
+					});
 				}
 			}
 		})
