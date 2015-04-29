@@ -87,6 +87,21 @@ class CustomerGroup(models.Model):
             order_list.append(order_obj)
         return order_list
 
+    def call_next_queue(old_queue_number):
+        new_queue_number = old_queue_number
+        last_customergroup = CustomerGroup.objects.order_by('queue_no').last()
+        max_queue = last_customergroup.id
+        if old_queue_number == max_queue:
+            return max_queue
+
+        while True:
+            new_queue_number += 1
+            if CustomerGroup.objects.filter(id=new_queue_number).exists():
+                return new_queue_number
+            if new_queue_number >= max_queue:
+                return max_queue
+        return -1
+
     @staticmethod
     def checkedout(customergroup_id):
         m_customergroup = CustomerGroup.objects.get(pk=customergroup_id)
