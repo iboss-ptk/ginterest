@@ -1,5 +1,7 @@
 // Initialize your app
-var myApp = new Framework7();
+var myApp = new Framework7({
+	modalTitle: '',
+});
 
 // Export selectors engine
 var $$ = Dom7;
@@ -12,18 +14,22 @@ var mainView = myApp.addView('.view-main', {
 
 
 function init(){
-	console.log('init');
     // run createContentPage func after link was clicked
 
     $$('#login-table').on('click', function () {
 		var data = {
-		"username": $$('#username').val(),
-		"password": $$('#password').val()
-	};
-		//console.log(data);
+			"username": $$('#username').val(),
+			"password": $$('#password').val()
+		};
+		myApp.showPreloader('Logging in...')
         $$.post('api/user/login/', data, function(result){
+			myApp.hidePreloader();
 			result = JSON.parse(result);
-			console.log(result.isAuthenticated);
+			if(result.isAuthenticated){
+				mainView.router.loadPage('static/f7/html/table/wait.html');
+			}else{
+				 myApp.alert('Incorrect<br>username or password');
+			}	
 		})
     });
 }
