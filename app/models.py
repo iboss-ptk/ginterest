@@ -41,6 +41,7 @@ class User(models.Model):
             return True
         return False
 
+
 class DTable(models.Model):
     TABLE_STATUSES = (
         ('u', 'InUsed'),
@@ -93,6 +94,22 @@ class CustomerGroup(models.Model):
             order_list.append(order_obj)
         return order_list
 
+
+    def call_next_queue(old_queue_number):
+        new_queue_number = old_queue_number
+        last_customergroup = CustomerGroup.objects.order_by('queue_no').last()
+        max_queue = last_customergroup.id
+        if old_queue_number == max_queue:
+            return max_queue
+
+        while True:
+            new_queue_number += 1
+            if CustomerGroup.objects.filter(id=new_queue_number).exists():
+                return new_queue_number
+            if new_queue_number >= max_queue:
+                return max_queue
+        return -1
+
     @staticmethod
     def checkedout(customergroup_id):
         m_customergroup = CustomerGroup.objects.get(pk=customergroup_id)
@@ -105,11 +122,9 @@ class CustomerGroup(models.Model):
 
         return
 
-
-    # @staticmethod
-    # def get_checkingout_orderlist():
-    #     return
-
+    @staticmethod
+    def initiate_queue():
+        return CustomerGroup.objects.all().last().id
 
 
 class Reservation(models.Model):
@@ -174,12 +189,6 @@ class Orderlist(models.Model):
             customergroup_id=CustomerGroup.objects.get(pk=customergroup_id))
         new_orderlist.save()
         return new_orderlist
-    # TODO
-    # @staticmethod
-    # def get_all_table_orderlist(self):
-    #     orderlist_list = []
-    #     dtables = DTable.objects.
-    #     return orderlist_list
 
     @staticmethod
     def get_all_checking_out_orderlist_list():
@@ -285,6 +294,18 @@ class Order(models.Model):
         m_order.status = 's'
         m_order.save()
         return True
+
+    @staticmethod
+    def all_order_list():
+        return_list = []
+        m_all_order = Order.objects.prefetch_related('menu_id').all()
+        for order in m_all_order:
+            return_list.append({
+                'menu_name': order.menu_id.name,
+                'table_id': order.orderlist_id.dtable_id,
+                'ordertime': order.order_time,
+                'price': order.price
+            })
 
 
 class Salaried(models.Model):
