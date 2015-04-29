@@ -16,7 +16,7 @@ var mainView = myApp.addView('.view-main', {
 function init(){
     // run createContentPage func after link was clicked
 
-    $$('#login-table').on('click', function () {
+    $$('#login-button').on('click', function () {
 		var data = {
 			"username": $$('#username').val(),
 			"password": $$('#password').val()
@@ -31,7 +31,12 @@ function init(){
 				myApp.hidePreloader();
 				result = JSON.parse(result);
 				if(result.isAuthenticated){
-					mainView.router.loadPage('static/f7/html/table/wait.html');
+					switch(result.role_id){
+						case 1: mainView.router.loadPage('static/f7/html/table/wait.html'); break;
+						case 2: mainView.router.loadPage('static/f7/html/table/wait.html'); break;
+						case 3: mainView.router.loadPage('static/f7/html/table/wait.html'); break;
+						default: myApp.alert('Role id error');
+					}
 				}else{
 					 myApp.alert('Incorrect<br>username or password');
 				}	
