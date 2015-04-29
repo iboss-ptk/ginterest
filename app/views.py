@@ -86,9 +86,9 @@ class CustomerGroupViewSet(viewsets.ModelViewSet):
         return Response(resp)
 
     @detail_route()
-    def checkout(self):
-        # TODO: call Ong's checkout
-        pass
+    def checkout(self, request):
+        resp = {"a": 123}
+        return Response(resp)
 
 
 
