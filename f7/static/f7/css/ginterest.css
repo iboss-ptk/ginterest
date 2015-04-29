@@ -206,7 +206,6 @@ li{
 	height: calc(100vh - 495px);
 }
 .check-out-button{
-	width: 30vh;
 	height: 15vh;
 	position: relative;
 	background:#AF180B;
@@ -221,5 +220,5 @@ li{
 	max-height: 8vh;
 }
 .button-block{
-	padding-left: 15px;
+	padding: 0 15px;
 }
