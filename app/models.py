@@ -34,6 +34,13 @@ class User(models.Model):
         else:
             return None
 
+    @staticmethod
+    def is_table_vacant(table_id):
+        table = DTable.objects.get(pk=table_id)
+        if table.status == 'o':
+            return True
+        return False
+
 
 class DTable(models.Model):
     TABLE_STATUSES = (
@@ -232,7 +239,8 @@ class Employee(models.Model):
 
     @staticmethod
     def total_income():
-
+        orderlists = Orderlist.objects.all().prefetch_related('customergroup_id').filter(exist=False)
+        #TODO
         return
 
 
