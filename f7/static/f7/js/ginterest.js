@@ -57,6 +57,10 @@ myApp.onPageInit('login-screen-embedded', function(page){});
 
 // Generate dynamic page
 var dynamicPageIndex = 0;
+var mySwiper = myApp.swiper('.swiper-container', {
+     pagination:'.swiper-pagination',
+        direction: 'vertical'
+     });
 function createContentPage() {
 	mainView.router.loadContent(
         '<!-- Top Navbar-->' +
@@ -82,4 +86,5 @@ function createContentPage() {
         '</div>'
     );
 	return;
+
 }

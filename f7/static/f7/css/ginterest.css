@@ -225,3 +225,15 @@ li{
 .button-block{
 	padding: 0 15px;
 }
+
+.swiper-container {
+  height: 100%;
+}
+.swiper-slide {
+  background:#fff;
+}
+.swiper-slide span {
+  text-align:center;
+  display:block;
+  margin:20px;
+}
