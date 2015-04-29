@@ -29,7 +29,13 @@
     <!-- Right panel with cover effect-->
     <div class="panel panel-right panel-cover">
       <div class="content-block">
-        <p>Right panel content goes here</p>
+        <div class="list-block">
+			<li class="item-content logOutButton red-bg-content color-white">
+				<div class="item-inner">
+					<div class="item-title">Log Out</div>
+				</div>
+			</li>
+        </div>
       </div>
     </div>
     <!-- Views-->
@@ -59,7 +65,7 @@
 							  <div class="item-inner">
 								<div class="item-title label color-text bold">Username</div>
 								<div class="item-input color-input">
-								  <input class="color-input" type="text" name="username" placeholder="Your username"/>
+								  <input id="username" class="color-input" type="text" name="username" placeholder="Your username" value="t1"/>
 								</div>
 							  </div>
 							</li>
@@ -71,7 +77,7 @@
 							  <div class="item-inner">
 								<div class="item-title label color-text bold">Password</div>
 								<div class="item-input color-input">
-								  <input type="password" name="password" placeholder="Your password"/>
+								  <input id="password" type="password" name="password" placeholder="Your password" value="qwer"/>
 								</div>
 							  </div>
 							</li>
@@ -80,7 +86,7 @@
 					</div>
 					<div class="list-block">
 					  <ul>
-						<li><a href="{% static 'f7/html/reception.html' %}" class="item-link list-button color-white">Log In</a></li>
+						<li><a href="{% static 'f7/html/income.html' %}" class="item-link list-button color-white">Log In</a></li>
 					  </ul>
 					  <div class="list-block-label color-white">An advanced restaurant<br>database system</div>
 					</div>
@@ -250,10 +256,14 @@
     <script type="text/javascript" src="{% static 'f7/js/framework7.js' %}"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="{% static 'f7/js/ginterest.js' %}"></script>
+	<script type="text/javascript" src="{% static 'f7/js/Controllers/table.js' %}"></script>
+	<script type="text/javascript" src="{% static 'f7/js/Controllers/reception.js' %}"></script>
+	<script type="text/javascript" src="{% static 'f7/js/Controllers/manager.js' %}"></script>
     <script>
 		function hideNavbar(){
 			mainView.hideNavbar();
 		}
 	</script>
+
   </body>
 </html>

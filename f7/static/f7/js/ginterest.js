@@ -2,6 +2,7 @@ var queue=0;
 // Initialize your app
 var myApp = new Framework7({
 	modalTitle: '',
+	swipePanel: 'right'
 	template7Pages: true,
 	template7Data: {
         // This context will applied for page/template with "about.html" URL
@@ -11,6 +12,7 @@ var myApp = new Framework7({
 }
 });
 
+var table_id;
 // Export selectors engine
 var $$ = Dom7;
 
@@ -25,12 +27,12 @@ function init(){
     // run createContentPage func after link was clicked
 
 
-    $$('#login-table').on('click', function () {
+    $$('#login-button').on('click', function () {
 		var data = {
 			"username": $$('#username').val(),
 			"password": $$('#password').val()
 		};
-		myApp.showPreloader('Logging in...')
+		myApp.showPreloader('Logging in...');
         $$.ajax({
 			url: 'api/user/login/', 
 			method: 'post',
@@ -39,14 +41,20 @@ function init(){
 				//console.log(result);
 				myApp.hidePreloader();
 				result = JSON.parse(result);
+				table_id = result.table_id;
 				if(result.isAuthenticated){
-					mainView.router.loadPage('static/f7/html/table/wait.html');
+					switch(result.role_id){
+						case 1: mainView.router.loadPage('static/f7/html/table/wait.html'); break;
+						case 2: mainView.router.loadPage('static/f7/html/table/wait.html'); break;
+						case 3: mainView.router.loadPage('static/f7/html/table/wait.html'); break;
+						default: myApp.alert('Role id error');
+					}
 				}else{
 					 myApp.alert('Incorrect<br>username or password');
 				}	
 			},
 			error: function(result){
-				//console.log(result.statusText);
+				//console.log(result);
 				myApp.hidePreloader();
 				myApp.alert(result.statusText);
 			}

@@ -28,7 +28,7 @@ class User(models.Model):
         return {'isAuthenticated': False}
 
     def get_table_id(self):
-        if self.role_id.name == 'TableScreen':
+        if self.role_id == 1:
             table_obj = DTable.objects.all().filter(user_id=self.id)
             return table_obj.id
         else:
@@ -113,7 +113,7 @@ class CustomerGroup(models.Model):
     @staticmethod
     def checkedout(customergroup_id):
         m_customergroup = CustomerGroup.objects.get(pk=customergroup_id)
-        m_customergroup.exit_time = datetime.dateime.now().time()
+        m_customergroup.exit_time = datetime.datetime.now()
         m_customergroup.save()
 
         m_table = Sit.get_table_of_customergroup(customergroup_id)
@@ -147,8 +147,8 @@ class Reservation(models.Model):
             return False
 
         new_sit = Sit.objects.create(
-            DTable.objects.get(pk=table_id),
-            CustomerGroup.objects.get(pk=customergroup_id))
+            table_id=DTable.objects.get(pk=table_id),
+            customer_id=CustomerGroup.objects.get(pk=customergroup_id))
         m_table.status = 'u'
 
         m_table.save()
@@ -186,7 +186,8 @@ class Orderlist(models.Model):
     def create_new_orderlist(table_id, customergroup_id):
         new_orderlist = Orderlist.objects.create(
             dtable_id=DTable.objects.get(pk=table_id),
-            customergroup_id=CustomerGroup.objects.get(pk=customergroup_id))
+            customergroup_id=CustomerGroup.objects.get(pk=customergroup_id)
+        )
         new_orderlist.save()
         return new_orderlist
 
