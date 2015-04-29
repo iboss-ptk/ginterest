@@ -22,7 +22,8 @@ def run():
     print('hi')
     print(ol1.total_price())
 
-    print(CustomerGroup.initiate_queue())
+    print('test today')
+    print(Employee.total_income())
     # test authenticate
     # print(User.authenticate('janin', 'jap')) #correct username, password
     # print(User.authenticate('janin', 'kuy')) #wrong password
