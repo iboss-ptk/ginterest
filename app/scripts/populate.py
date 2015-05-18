@@ -95,14 +95,14 @@ def run():
 
 
     # Menu,
-    m1 = Menu(name='shabu',description='japanese',pic_path='menu_pic/1.jpg')
-    m2 = Menu(name='sushi',description='salmon',pic_path='menu_pic/2.jpg')
-    m3 = Menu(name='chicken',description='fried chicken',pic_path='menu_pic/3.jpg')
-    m4 = Menu(name='rice',description='in a bowl',pic_path='menu_pic/4.jpg')
-    m5 = Menu(name='noodle',description='tom yum',pic_path='menu_pic/5.jpg')
-    m6 = Menu(name='egg',description='boiled egg',pic_path='menu_pic/6.jpg')
-    m7 = Menu(name='steak',description='pork',pic_path='menu_pic/7.jpg')
-    m8 = Menu(name='fish',description='fillet',pic_path='emp_pic/8.jpg')
+    m1 = Menu(name='shabu',description='japanese',pic_path='menu_pic/1.jpg',price=199)
+    m2 = Menu(name='sushi',description='salmon',pic_path='menu_pic/2.jpg',price=249)
+    m3 = Menu(name='chicken',description='fried chicken',pic_path='menu_pic/3.jpg',price=69)
+    m4 = Menu(name='rice',description='in a bowl',pic_path='menu_pic/4.jpg',price=15)
+    m5 = Menu(name='noodle',description='tom yum',pic_path='menu_pic/5.jpg',price=59)
+    m6 = Menu(name='egg',description='boiled egg',pic_path='menu_pic/6.jpg',price=25)
+    m7 = Menu(name='steak',description='pork',pic_path='menu_pic/7.jpg',price=299)
+    m8 = Menu(name='fish',description='fillet',pic_path='emp_pic/8.jpg',price=199189)
     m1.save()
     m2.save()
     m3.save()
